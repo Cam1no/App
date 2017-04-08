@@ -12,5 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require reset.scss
  */
+
 @import "bootstrap3/bootstrap"
