@@ -29,6 +29,7 @@ gem "config"
 gem 'draper', '3.0.0.pre1' #rails5に対応
 gem 'cells'
 gem 'enumerize', github: 'brainspec/enumerize', branch: :master
+gem 'redis-rails'
 
 group :development, :test do
   gem 'pry-rails'

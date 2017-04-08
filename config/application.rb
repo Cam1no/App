@@ -15,6 +15,11 @@ module Denken3
       g.template_engine :slim
       g.test_framework :rspec, view_specs: false, helper_specs: false, fixture: true
       g.fixture_replacement :factory_girl, dir: "spec/support/factories"
+
+      config.chache_store = :redis_store, "redis://localhost:6379/0/chache", { expires_in: 90.minutes }
+      # ちなみに環境変数に入れてしまうのもおすすめです
+      # config.cache_store = :redis_store, ENV['REDIS_URL'], { expires_in: 90.minutes }
+
     end
     config.sass.preferred_syntax = :sass
 
