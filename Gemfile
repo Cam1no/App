@@ -26,6 +26,9 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'
 gem 'rails-i18n', '~> 5.0', '>= 5.0.1'
 gem "font-awesome-rails"
 gem "config"
+gem 'draper', '3.0.0.pre1' #rails5に対応
+gem 'cells'
+gem 'enumerize', github: 'brainspec/enumerize', branch: :master
 
 group :development, :test do
   gem 'pry-rails'
