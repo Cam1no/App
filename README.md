@@ -1,24 +1,12 @@
 # README
+Railsの初期設定を終えています。
+database.ymlを書き換え、renameというgemを使ってApplicationNameを変更すればすぐに使えます。
+cellsというgemを入れています。とても便利そう
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- generatorの設定
+- bootstrapの設定(vendor以下に追加してるので便宜削除)
+- gitignore
+- gemfile
+- slimの変換
+- redisの設定
