@@ -1,0 +1,32 @@
+h1 Listing user_bases
+
+table class="table"
+  thead class="thead-inverse"
+    tr
+      th Name
+      th Email
+      th
+      th
+      th
+
+  tbody
+    - @user_bases.each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_basis_path(user)
+        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+        - current_user = User::Base.first
+        - if current_user.following?(user)
+          td
+            = link_to 'Unfollow', user_relationship_path(user.id), remote: true, method: :delete, class: "btn btn-large btn-danger follow-btn"
+        - elsif current_user != user
+          td
+            = link_to 'Follow', user_relationships_path(user_id: user.id), remote: true, method: :post, class: "btn btn-large btn-primary follow-btn"
+            
+        
+
+br
+
+= link_to 'New Base', new_user_basis_path
