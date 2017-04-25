@@ -14,10 +14,6 @@ table class="table"
       tr
         td = user.name
         td = user.email
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_basis_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
-        - current_user = User::Base.first
         - if current_user.following?(user)
           td
             = link_to 'Unfollow', user_relationship_path(user.id), remote: true, method: :delete, class: "btn btn-large btn-danger follow-btn"
@@ -29,4 +25,6 @@ table class="table"
 
 br
 
-= link_to 'New Base', new_user_basis_path
+= link_to '登録する', new_basis_registration_path
+br
+= link_to 'ログアウトする', destroy_basis_session_path, method: :delete

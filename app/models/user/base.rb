@@ -1,4 +1,9 @@
 class User::Base < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_many :following_relationships, foreign_key: "follower_id", class_name: "User::Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
 

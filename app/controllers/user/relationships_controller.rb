@@ -23,9 +23,8 @@ class User::RelationshipsController < ApplicationController
   # POST /user/relationships
   # POST /user/relationships.json
   def create
-    user = User::Base.first
     user_id = params[:user_id]
-    @follow = user.following_relationships.build(following_id: user_id)
+    @follow = current_user.following_relationships.build(following_id: user_id)
     if @follow.save
       redirect_to root_path
     else
@@ -50,8 +49,7 @@ class User::RelationshipsController < ApplicationController
   # DELETE /user/relationships/1
   # DELETE /user/relationships/1.json
   def destroy
-    user = User::Base.first
-    user.following_relationships.find_by(following_id: params[:id]).destroy
+    current_user.following_relationships.find_by(following_id: params[:id]).destroy
     redirect_to root_path
   end
 

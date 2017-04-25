@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :bases, class_name: "User::Base", path: "/"
   root to: 'user/bases#index'
   namespace :user do
-    resources :bases do
+    resources :bases, only: [:index] do
       member do
        get :followings, :followers
       end

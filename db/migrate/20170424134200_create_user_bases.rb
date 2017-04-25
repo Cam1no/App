@@ -3,8 +3,6 @@ class CreateUserBases < ActiveRecord::Migration[5.0]
     create_table :user_bases do |t|
       t.string :name
       t.string :email
-
-      t.timestamps
     end
   end
 end
