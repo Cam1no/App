@@ -1,12 +1,10 @@
-h1 Listing user_bases
-
 table class="table"
   thead class="thead-inverse"
     tr
       th Name
       th Email
-      th
-      th
+      th 編集
+      th Follow
       th
 
   tbody
@@ -14,17 +12,10 @@ table class="table"
       tr
         td = user.name
         td = user.email
+        td = link_to "編集", edit_user_basis_path(user)
         - if current_user.following?(user)
           td
             = link_to 'Unfollow', user_relationship_path(user.id), remote: true, method: :delete, class: "btn btn-large btn-danger follow-btn"
         - elsif current_user != user
           td
             = link_to 'Follow', user_relationships_path(user_id: user.id), remote: true, method: :post, class: "btn btn-large btn-primary follow-btn"
-            
-        
-
-br
-
-= link_to '登録する', new_basis_registration_path
-br
-= link_to 'ログアウトする', destroy_basis_session_path, method: :delete

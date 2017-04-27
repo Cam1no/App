@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require reset.scss
+ *= require rails_bootstrap_forms
  */
 
 @import "bootstrap3/bootstrap"

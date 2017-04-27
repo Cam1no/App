@@ -4,7 +4,7 @@ class User::BasesController < ApplicationController
   # GET /user/bases
   # GET /user/bases.json
   def index
-    @user_bases = User::Base.all
+    @user_bases = User::Base.includes(:followings, :followers)
   end
 
   # GET /user/bases/1
@@ -42,11 +42,9 @@ class User::BasesController < ApplicationController
   def update
     respond_to do |format|
       if @user_basis.update(user_basis_params)
-        format.html { redirect_to @user_basis, notice: 'Base was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_basis }
+        format.html { redirect_to root_path, notice: 'Base was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @user_basis.errors, status: :unprocessable_entity }
       end
     end
   end

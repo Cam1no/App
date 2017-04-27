@@ -2,11 +2,39 @@ doctype html
 html
   head
     title
-      | Denken3
+      | App
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          a.navbar-brand[href="#"]
+            - if current_user.present? && current_user.try(:name).present?
+               = "#{current_user.name}"
+            - else
+              | Guest
+        ul.nav.navbar-nav
+          li.active
+            = link_to "User一覧", root_path
+          li
+            a[href="#"]
+              | Page 1
+          li
+            a[href="#"]
+              | Page 2
+          li
+            a[href="#"]
+              | Page 3
+        - if signed_in?
+          p
+            .navbar-text.navbar-right
+              = link_to 'ログアウトする', destroy_basis_session_path, method: :delete, class: "navbar-link"
+        - else
+          p
+            .navbar-text.navbar-right
+              = link_to '登録する', new_basis_registration_path, class: "navbar-link"
     - if notice.present?
       p class="notice"
         = notice 

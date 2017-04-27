@@ -19,6 +19,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'bootstrap_form'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user
+  helper_method :current_user, :signed_in?
 
   def current_user
     if current_basis.nil?
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     else
       current_basis
     end
+  end
+
+  def signed_in?
+    !current_user.nil?
   end
 
   private
