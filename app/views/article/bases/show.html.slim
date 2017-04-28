@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @article_basis.title
+p
+  strong Content:
+  = @article_basis.content
+p
+  strong Description:
+  = @article_basis.description
+p
+  strong User:
+  = @article_basis.user_id
+
+= link_to 'Edit', edit_article_basis_path(@article_basis)
+'  |
+= link_to 'Back', article_bases_path

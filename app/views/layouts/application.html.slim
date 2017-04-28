@@ -16,14 +16,12 @@ html
             - else
               | Guest
         ul.nav.navbar-nav
-          li.active
+          li[class="#{current_page?(root_path) ? 'active' : '' }"]
             = link_to "User一覧", root_path
+          li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
+            = link_to '記事作成', new_article_basis_path
           li
-            a[href="#"]
-              | Page 1
-          li
-            a[href="#"]
-              | Page 2
+            = link_to '記事一覧', article_bases_path
           li
             a[href="#"]
               | Page 3
@@ -41,4 +39,5 @@ html
     - if alert.present?
       p class="alert"
         = alert
-    = yield
+    .container
+      = yield

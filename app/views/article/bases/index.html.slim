@@ -1,0 +1,21 @@
+table class="table"
+  thead
+    tr
+      th Title
+      th Content
+      th Description
+      th
+      th
+      th
+      th LIKE
+
+  tbody
+    - @article_bases.each do |article_basis|
+      tr
+        td = article_basis.title
+        td = article_basis.content
+        td = article_basis.description
+        td = link_to 'Show', article_basis
+        td = link_to 'Edit', edit_article_basis_path(article_basis)
+        td = link_to 'Destroy', article_basis, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'LIKE', '#', class: "btn btn-primary"

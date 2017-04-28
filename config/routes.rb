@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :article do
+    resources :bases
+  end
   devise_for :bases, class_name: "User::Base", path: "/"
   root to: 'user/bases#index'
   namespace :user do

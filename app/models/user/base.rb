@@ -10,6 +10,8 @@ class User::Base < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "User::Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  has_many :articles, class_name: "Article::Base", foreign_key: "user_id"
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end
