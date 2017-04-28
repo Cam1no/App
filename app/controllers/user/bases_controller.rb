@@ -4,7 +4,7 @@ class User::BasesController < ApplicationController
   # GET /user/bases
   # GET /user/bases.json
   def index
-    @user_bases = User::Base.includes(:followings, :followers)
+    @user_bases = User::Base.includes(:followings, :followers) - [current_user]
   end
 
   # GET /user/bases/1

@@ -12,6 +12,9 @@ class User::Base < ApplicationRecord
 
   has_many :articles, class_name: "Article::Base", foreign_key: "user_id"
 
+  has_many :like_articles, foreign_key: "user_id", class_name: "LikeArticle", dependent: :destroy
+  has_many :likes, through: :like_articles, source: :article
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end

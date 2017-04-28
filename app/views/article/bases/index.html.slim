@@ -1,6 +1,7 @@
 table class="table"
   thead
     tr
+      th 書いた人
       th Title
       th Content
       th Description
@@ -10,12 +11,16 @@ table class="table"
       th LIKE
 
   tbody
-    - @article_bases.each do |article_basis|
+    - @article_bases.each do |article|
       tr
-        td = article_basis.title
-        td = article_basis.content
-        td = article_basis.description
-        td = link_to 'Show', article_basis
-        td = link_to 'Edit', edit_article_basis_path(article_basis)
-        td = link_to 'Destroy', article_basis, data: { confirm: 'Are you sure?' }, method: :delete
-        td = link_to 'LIKE', '#', class: "btn btn-primary"
+        td = article.user.name
+        td = article.title
+        td = article.content
+        td = article.description
+        td = link_to 'Show', article
+        td = link_to 'Edit', edit_article_basis_path(article)
+        td = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+        - if current_user.like_articles.where(article_id: article.id).present?
+          td = link_to 'UNLIKE', like_article_path(article), class: "btn btn-danger", method: :delete
+        - else
+          td = link_to 'LIKE', like_articles_path(article_id: article.id), class: "btn btn-primary", method: :post

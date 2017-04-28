@@ -4,7 +4,7 @@ class Article::BasesController < ApplicationController
   # GET /article/bases
   # GET /article/bases.json
   def index
-    @article_bases = Article::Base.all
+    @article_bases = Article::Base.includes(:like_articles, :user)
   end
 
   # GET /article/bases/1

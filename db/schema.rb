@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428043900) do
+ActiveRecord::Schema.define(version: 20170428140025) do
 
   create_table "article_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                     null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20170428043900) do
     t.datetime "updated_at",                null: false
     t.index ["title"], name: "index_article_bases_on_title", using: :btree
     t.index ["user_id"], name: "index_article_bases_on_user_id", using: :btree
+  end
+
+  create_table "like_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_like_articles_on_article_id", using: :btree
+    t.index ["user_id", "article_id"], name: "index_like_articles_on_user_id_and_article_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_like_articles_on_user_id", using: :btree
   end
 
   create_table "user_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
