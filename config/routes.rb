@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :article do
+    get 'tags/create'
+  end
+
+  namespace :article do
+    get 'tags/destroy'
+  end
+
+  namespace :article do
     resources :bases
   end
   devise_for :bases, class_name: "User::Base", path: "/"

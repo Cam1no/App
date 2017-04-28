@@ -4,7 +4,7 @@ class Article::BasesController < ApplicationController
   # GET /article/bases
   # GET /article/bases.json
   def index
-    @article_bases = Article::Base.includes(:like_articles, :user)
+    @article_bases = Article::Base.includes(:like_articles, :user, :tags)
   end
 
   # GET /article/bases/1
@@ -25,9 +25,15 @@ class Article::BasesController < ApplicationController
   # POST /article/bases.json
   def create
     @article_basis = current_user.articles.build(article_basis_params)
-
     respond_to do |format|
       if @article_basis.save
+        if params[:tag].present?
+          tag_names = params[:tag].split(" ")
+          tag_names.each do |tag_name|
+            @tag = Article::Tag.find_or_create_by(name: tag_name)
+            @article_basis.tag_relations.create(tag_id: @tag.id)
+          end
+        end
         format.html { redirect_to @article_basis, notice: 'Base was successfully created.' }
       else
         format.html { render :new }

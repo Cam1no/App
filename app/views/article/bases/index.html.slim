@@ -8,6 +8,7 @@ table class="table"
       th
       th
       th
+      th tag
       th LIKE
 
   tbody
@@ -20,6 +21,7 @@ table class="table"
         td = link_to 'Show', article
         td = link_to 'Edit', edit_article_basis_path(article)
         td = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+        td = article.tags.present? ? article.tags.first.name : ""
         - if current_user.like_articles.where(article_id: article.id).present?
           td = link_to 'UNLIKE', like_article_path(article), class: "btn btn-danger", method: :delete
         - else
