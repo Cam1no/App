@@ -1,10 +1,7 @@
 class LikeArticlesController < ApplicationController
-
   def create
     @like = current_user.like_articles.build(article_id: params[:article_id])
-    if @like.save
-      redirect_to article_bases_path
-    end
+    redirect_to article_bases_path if @like.save
   end
 
   def destroy
@@ -15,5 +12,4 @@ class LikeArticlesController < ApplicationController
       redirect_to article_bases_path
     end
   end
-
 end

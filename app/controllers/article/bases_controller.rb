@@ -1,5 +1,5 @@
 class Article::BasesController < ApplicationController
-  before_action :set_article_basis, only: [:show, :edit, :update, :destroy]
+  before_action :set_article_basis, only: %i[show edit update destroy]
 
   # GET /article/bases
   # GET /article/bases.json
@@ -9,8 +9,7 @@ class Article::BasesController < ApplicationController
 
   # GET /article/bases/1
   # GET /article/bases/1.json
-  def show
-  end
+  def show; end
 
   # GET /article/bases/new
   def new
@@ -18,8 +17,7 @@ class Article::BasesController < ApplicationController
   end
 
   # GET /article/bases/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /article/bases
   # POST /article/bases.json
@@ -28,7 +26,7 @@ class Article::BasesController < ApplicationController
     respond_to do |format|
       if @article_basis.save
         if params[:tag].present?
-          tag_names = params[:tag].split(" ")
+          tag_names = params[:tag].split(' ')
           tag_names.each do |tag_name|
             @tag = Article::Tag.find_or_create_by(name: tag_name)
             @article_basis.tag_relations.create(tag_id: @tag.id)
@@ -63,13 +61,14 @@ class Article::BasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article_basis
-      @article_basis = Article::Base.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_basis_params
-      params.require(:article_base).permit(:title, :content, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article_basis
+    @article_basis = Article::Base.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_basis_params
+    params.require(:article_base).permit(:title, :content, :description)
+  end
 end

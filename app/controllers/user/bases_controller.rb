@@ -1,5 +1,5 @@
 class User::BasesController < ApplicationController
-  before_action :set_user_basis, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_basis, only: %i[show edit update destroy]
 
   # GET /user/bases
   # GET /user/bases.json
@@ -9,8 +9,7 @@ class User::BasesController < ApplicationController
 
   # GET /user/bases/1
   # GET /user/bases/1.json
-  def show
-  end
+  def show; end
 
   # GET /user/bases/new
   def new
@@ -18,8 +17,7 @@ class User::BasesController < ApplicationController
   end
 
   # GET /user/bases/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user/bases
   # POST /user/bases.json
@@ -60,13 +58,14 @@ class User::BasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_basis
-      @user_basis = User::Base.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_basis_params
-      params.require(:user_base).permit(:name, :email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_basis
+    @user_basis = User::Base.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_basis_params
+    params.require(:user_base).permit(:name, :email)
+  end
 end

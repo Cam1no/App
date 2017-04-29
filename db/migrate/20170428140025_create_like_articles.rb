@@ -8,6 +8,6 @@ class CreateLikeArticles < ActiveRecord::Migration[5.0]
     end
     add_index :like_articles, :user_id
     add_index :like_articles, :article_id
-    add_index :like_articles, [:user_id, :article_id], unique: true
+    add_index :like_articles, %i[user_id article_id], unique: true
   end
 end

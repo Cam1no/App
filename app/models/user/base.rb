@@ -31,18 +31,18 @@ class User::Base < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :following_relationships, foreign_key: "follower_id", class_name: "User::Relationship", dependent: :destroy
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'User::Relationship', dependent: :destroy
   has_many :followings, through: :following_relationships
 
-  has_many :follower_relationships, foreign_key: "following_id", class_name: "User::Relationship", dependent: :destroy
+  has_many :follower_relationships, foreign_key: 'following_id', class_name: 'User::Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships
 
-  has_many :articles, class_name: "Article::Base", foreign_key: "user_id"
+  has_many :articles, class_name: 'Article::Base', foreign_key: 'user_id'
 
-  has_many :like_articles, foreign_key: "user_id", class_name: "LikeArticle", dependent: :destroy
+  has_many :like_articles, foreign_key: 'user_id', class_name: 'LikeArticle', dependent: :destroy
   has_many :likes, through: :like_articles, source: :article
 
-  has_many :photos, class_name: "User::Photo", foreign_key: 'user_id', dependent: :destroy
+  has_many :photos, class_name: 'User::Photo', foreign_key: 'user_id', dependent: :destroy
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)

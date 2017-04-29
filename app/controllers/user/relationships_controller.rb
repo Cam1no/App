@@ -1,5 +1,4 @@
 class User::RelationshipsController < ApplicationController
-
   # GET /user/relationships
   # GET /user/relationships.json
   def index
@@ -8,8 +7,7 @@ class User::RelationshipsController < ApplicationController
 
   # GET /user/relationships/1
   # GET /user/relationships/1.json
-  def show
-  end
+  def show; end
 
   # GET /user/relationships/new
   def new
@@ -17,8 +15,7 @@ class User::RelationshipsController < ApplicationController
   end
 
   # GET /user/relationships/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user/relationships
   # POST /user/relationships.json
@@ -54,5 +51,6 @@ class User::RelationshipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
 end
