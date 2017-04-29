@@ -42,7 +42,8 @@ class User::Base < ApplicationRecord
   has_many :like_articles, foreign_key: 'user_id', class_name: 'LikeArticle', dependent: :destroy
   has_many :likes, through: :like_articles, source: :article
 
-  has_many :photos, class_name: 'User::Photo', foreign_key: 'user_id', dependent: :destroy
+  has_many :photos, class_name: 'User::Photo', foreign_key: 'user_id', dependent: :destroy, inverse_of: :user
+  accepts_nested_attributes_for :photos
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
@@ -54,5 +55,9 @@ class User::Base < ApplicationRecord
 
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
+  end
+
+  def main_photo
+    photos.first.image
   end
 end

@@ -2,11 +2,11 @@ p#notice = notice
 
 p
   strong Name:
-  = @user_basis.name
+  = @user.name
 p
   strong Email:
-  = @user_basis.email
+  = @user.email
 
-= link_to 'Edit', edit_user_basis_path(@user_basis)
+= link_to 'Edit', edit_user_basis_path(@user)
 '  |
 = link_to 'Back', user_bases_path

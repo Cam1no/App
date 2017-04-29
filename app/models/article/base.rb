@@ -24,6 +24,6 @@ class Article::Base < ApplicationRecord
   accepts_nested_attributes_for :photos
 
   def main_photo
-    self.photos.first.image
+    photos.first.image
   end
 end
