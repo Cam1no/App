@@ -9,9 +9,8 @@ p
 p
   strong Description:
   = @article.description
-p
-  strong User:
-  = @article.user_id
+
+= image_tag @article.main_photo if @article.photos.present?
 
 = link_to 'Edit', edit_article_basis_path(@article)
 '  |

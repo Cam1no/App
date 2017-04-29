@@ -14,6 +14,7 @@ class Article::BasesController < ApplicationController
   # GET /article/bases/new
   def new
     @article = current_user.articles.build
+    @article.photos.build
   end
 
   # GET /article/bases/1/edit
@@ -22,16 +23,15 @@ class Article::BasesController < ApplicationController
   # POST /article/bases
   # POST /article/bases.json
   def create
-    @article = current_user.articles.build(article_basis_params)
-    if @article.save
-      if params[:tag].present?
-        tag_names = params[:tag].split(' ')
-        tag_names.each do |tag_name|
-          @tag = Article::Tag.find_or_create_by(name: tag_name)
-          @article.tag_relations.create(tag_id: @tag.id)
-        end
+    @article = current_user.articles.create(article_basis_params)
+    if params[:tag].present?
+      tag_names = params[:tag].split(' ')
+      tag_names.each do |tag_name|
+        @tag = Article::Tag.find_or_create_by(name: tag_name)
+        @article.tag_relations.create(tag_id: @tag.id)
       end
     end
+    redirect_to article_bases_path
   end
 
   # PATCH/PUT /article/bases/1
@@ -69,6 +69,6 @@ class Article::BasesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_basis_params
-    params.require(:article_base).permit(:title, :content, :description)
+    params.require(:article_base).permit(:title, :content, :description, photos_attributes: [:image])
   end
 end

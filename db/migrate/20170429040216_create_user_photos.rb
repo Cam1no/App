@@ -2,8 +2,7 @@ class CreateUserPhotos < ActiveRecord::Migration[5.0]
   def change
     create_table :user_photos do |t|
       t.integer :user_id, null: false
-      t.boolean :removed, default: false
-      t.string :image_path
+      t.boolean :removed, default: true
       t.string :image, null: false
 
       t.timestamps

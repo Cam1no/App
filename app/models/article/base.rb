@@ -20,5 +20,10 @@ class Article::Base < ApplicationRecord
   has_many :tag_relations, foreign_key: 'article_id', class_name: 'Article::TagRelation', dependent: :destroy
   has_many :tags, through: :tag_relations, source: :tag
 
-  has_many :photos, class_name: 'Article::Photo', foreign_key: 'article_id', dependent: :destroy
+  has_many :photos, class_name: 'Article::Photo', foreign_key: 'article_id', dependent: :destroy, inverse_of: :article
+  accepts_nested_attributes_for :photos
+
+  def main_photo
+    self.photos.first.image
+  end
 end
