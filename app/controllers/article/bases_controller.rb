@@ -23,18 +23,13 @@ class Article::BasesController < ApplicationController
   # POST /article/bases.json
   def create
     @article = current_user.articles.build(article_basis_params)
-    respond_to do |format|
-      if @article.save
-        if params[:tag].present?
-          tag_names = params[:tag].split(' ')
-          tag_names.each do |tag_name|
-            @tag = Article::Tag.find_or_create_by(name: tag_name)
-            @article.tag_relations.create(tag_id: @tag.id)
-          end
+    if @article.save
+      if params[:tag].present?
+        tag_names = params[:tag].split(' ')
+        tag_names.each do |tag_name|
+          @tag = Article::Tag.find_or_create_by(name: tag_name)
+          @article.tag_relations.create(tag_id: @tag.id)
         end
-        format.html { redirect_to @article, notice: 'Base was successfully created.' }
-      else
-        format.html { render :new }
       end
     end
   end
@@ -42,12 +37,17 @@ class Article::BasesController < ApplicationController
   # PATCH/PUT /article/bases/1
   # PATCH/PUT /article/bases/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_basis_params)
-        format.html { redirect_to @article, notice: 'Base was successfully updated.' }
-      else
-        format.html { render :edit }
+    if @article.update(article_basis_params)
+      if params[:tag].present?
+        tag_names = params[:tag].split(' ')
+        tag_names.each do |tag_name|
+          @tag = Article::Tag.find_or_create_by(name: tag_name)
+          @article.tag_relations.create(tag_id: @tag.id)
+        end
       end
+      redirect_to article_bases_path
+    else
+      render 'edit'
     end
   end
 
