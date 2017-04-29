@@ -21,6 +21,8 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'bootstrap_form'
 gem 'annotate'
+gem 'carrierwave'
+gem 'rmagick'
 
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
