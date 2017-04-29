@@ -53,6 +53,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (7.1.4)
     ast (2.3.0)
     autodoc (0.6.0)
@@ -374,6 +377,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   autodoc
   awesome_print
   better_errors
