@@ -2,17 +2,17 @@ p#notice = notice
 
 p
   strong Title:
-  = @article_basis.title
+  = @article.title
 p
   strong Content:
-  = @article_basis.content
+  = @article.content
 p
   strong Description:
-  = @article_basis.description
+  = @article.description
 p
   strong User:
-  = @article_basis.user_id
+  = @article.user_id
 
-= link_to 'Edit', edit_article_basis_path(@article_basis)
+= link_to 'Edit', edit_article_basis_path(@article)
 '  |
 = link_to 'Back', article_bases_path

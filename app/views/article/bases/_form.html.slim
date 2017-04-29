@@ -1,9 +1,9 @@
-= bootstrap_form_for @article_basis do |f|
-  - if @article_basis.errors.any?
+= bootstrap_form_for @article do |f|
+  - if @article.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@article_basis.errors.count, "error")} prohibited this article_basis from being saved:"
+      h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article_basis from being saved:"
       ul
-        - @article_basis.errors.full_messages.each do |message|
+        - @article.errors.full_messages.each do |message|
           li = message
 
   .field

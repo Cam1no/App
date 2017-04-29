@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-100.times do |index|
+20.times do |index|
   User::Base.create(name: "Name#{index}", email: "yuji#{index}@gmail.com", password: "password#{index}")
+end
+
+20.times do |i|
+  User::Base.first.articles.create(title: "Hello World #{i}", content: "Hello New World #{i}", description: "Lets Rock The World #{i}")
 end

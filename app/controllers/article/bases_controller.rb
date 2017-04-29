@@ -13,7 +13,7 @@ class Article::BasesController < ApplicationController
 
   # GET /article/bases/new
   def new
-    @article_basis = current_user.articles.build
+    @article = current_user.articles.build
   end
 
   # GET /article/bases/1/edit
@@ -22,17 +22,17 @@ class Article::BasesController < ApplicationController
   # POST /article/bases
   # POST /article/bases.json
   def create
-    @article_basis = current_user.articles.build(article_basis_params)
+    @article = current_user.articles.build(article_basis_params)
     respond_to do |format|
-      if @article_basis.save
+      if @article.save
         if params[:tag].present?
           tag_names = params[:tag].split(' ')
           tag_names.each do |tag_name|
             @tag = Article::Tag.find_or_create_by(name: tag_name)
-            @article_basis.tag_relations.create(tag_id: @tag.id)
+            @article.tag_relations.create(tag_id: @tag.id)
           end
         end
-        format.html { redirect_to @article_basis, notice: 'Base was successfully created.' }
+        format.html { redirect_to @article, notice: 'Base was successfully created.' }
       else
         format.html { render :new }
       end
@@ -43,8 +43,8 @@ class Article::BasesController < ApplicationController
   # PATCH/PUT /article/bases/1.json
   def update
     respond_to do |format|
-      if @article_basis.update(article_basis_params)
-        format.html { redirect_to @article_basis, notice: 'Base was successfully updated.' }
+      if @article.update(article_basis_params)
+        format.html { redirect_to @article, notice: 'Base was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -54,7 +54,7 @@ class Article::BasesController < ApplicationController
   # DELETE /article/bases/1
   # DELETE /article/bases/1.json
   def destroy
-    @article_basis.destroy
+    @article.destroy
     respond_to do |format|
       format.html { redirect_to article_bases_url, notice: 'Base was successfully destroyed.' }
     end
@@ -64,7 +64,7 @@ class Article::BasesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article_basis
-    @article_basis = Article::Base.find(params[:id])
+    @article = Article::Base.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
