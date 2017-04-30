@@ -10,14 +10,14 @@ html
     nav.navbar.navbar-inverse
       .container-fluid
         .navbar-header
-          a.navbar-brand[href="#"]
+          a.navbar-brand[href="#{root_path}"]
             - if current_user.present? && current_user.try(:name).present?
                = "#{current_user.name}"
             - else
               | Guest
         ul.nav.navbar-nav
-          li[class="#{current_page?(root_path) ? 'active' : '' }"]
-            = link_to "User一覧", root_path
+          li[class="#{current_page?(user_bases_path) ? 'active' : '' }"]
+            = link_to "User一覧", user_bases_path
           li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
             = link_to '記事作成', new_article_basis_path
           li
