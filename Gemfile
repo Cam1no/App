@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'rmagick'
 gem 'turbolinks', '~> 5'
+gem 'toastr_rails'
 
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'

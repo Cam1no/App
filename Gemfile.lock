@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/brainspec/enumerize.git
-  revision: 5b4de480ba68b58e96155025764fbbe7002af8e5
+  revision: d207627989c44df741312fe7c8bf7657c3f23ad1
   branch: master
   specs:
-    enumerize (2.1.0)
+    enumerize (2.1.1)
       activesupport (>= 3.2)
 
 GEM
@@ -53,9 +53,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (7.1.4)
     ast (2.3.0)
     autodoc (0.6.0)
@@ -77,7 +77,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
-    capybara (2.13.0)
+    capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -86,7 +86,7 @@ GEM
       xpath (~> 2.0)
     capybara-user_agent (0.0.3)
       capybara (~> 2.0, >= 2.0.2)
-    carrierwave (1.0.0)
+    carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -144,12 +144,12 @@ GEM
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
     ffi (1.9.18)
-    font-awesome-rails (4.7.0.1)
-      railties (>= 3.2, < 5.1)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     foreman (0.84.0)
       thor (~> 0.19.1)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -169,12 +169,13 @@ GEM
       rspec (>= 2.0, < 4.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    listen (3.0.8)
+    listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.4)
+    mail (2.6.5)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
     mime-types (3.1)
@@ -190,7 +191,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
-    poltergeist (1.14.0)
+    poltergeist (1.15.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
@@ -241,8 +242,9 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rainbow (2.2.1)
-    rake (12.0.0)
+    rainbow (2.2.2)
+      rake
+    rake (11.3.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
@@ -254,8 +256,8 @@ GEM
     redis-activesupport (5.0.2)
       activesupport (>= 3, < 6)
       redis-store (~> 1.3.0)
-    redis-rack (2.0.1)
-      rack (>= 2.0, < 3)
+    redis-rack (2.0.2)
+      rack (>= 1.5, < 3)
       redis-store (>= 1.2, < 1.4)
     redis-rails (5.0.2)
       redis-actionpack (>= 5.0, < 6)
@@ -264,8 +266,9 @@ GEM
     redis-store (1.3.0)
       redis (>= 2.2)
     request_store (1.3.2)
-    responders (2.3.0)
-      railties (>= 4.2.0, < 5.1)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rmagick (2.16.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -306,6 +309,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    ruby_dep (1.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -349,15 +353,16 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.7)
     timecop (0.8.1)
+    toastr_rails (2.1.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.1.3)
+    unicode-display_width (1.2.1)
     uniform_notifier (1.10.0)
     view_source_map (0.1.4)
       rails (>= 3.2)
@@ -374,9 +379,9 @@ GEM
     websocket-extensions (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    xray-rails (0.2.0)
+    xray-rails (0.3.0)
       rails (>= 3.1.0)
-    yard (0.9.8)
+    yard (0.9.9)
 
 PLATFORMS
   ruby
@@ -443,6 +448,7 @@ DEPENDENCIES
   test-unit
   thin
   timecop
+  toastr_rails
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

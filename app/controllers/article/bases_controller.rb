@@ -31,7 +31,7 @@ class Article::BasesController < ApplicationController
         @article.tag_relations.create(tag_id: @tag.id)
       end
     end
-    redirect_to article_bases_path
+    redirect_to article_basis_path(@article), notice: '記事を投稿しました'
   end
 
   # PATCH/PUT /article/bases/1
@@ -45,7 +45,7 @@ class Article::BasesController < ApplicationController
           @article.tag_relations.create(tag_id: @tag.id)
         end
       end
-      redirect_to article_bases_path
+      redirect_to article_basis_path(@article), notice: '記事を更新しました'
     else
       render 'edit'
     end

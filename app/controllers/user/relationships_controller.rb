@@ -23,9 +23,9 @@ class User::RelationshipsController < ApplicationController
     user_id = params[:user_id]
     @follow = current_user.following_relationships.build(following_id: user_id)
     if @follow.save
-      redirect_to root_path
+      redirect_to user_bases_path
     else
-      redirect_to root_path
+      redirect_to user_bases_path
     end
   end
 
@@ -47,7 +47,7 @@ class User::RelationshipsController < ApplicationController
   # DELETE /user/relationships/1.json
   def destroy
     current_user.following_relationships.find_by(following_id: params[:id]).destroy
-    redirect_to root_path
+    redirect_to user_bases_path
   end
 
   private
