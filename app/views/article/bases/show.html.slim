@@ -15,3 +15,13 @@ p
 = link_to 'Edit', edit_article_basis_path(@article)
 '  |
 = link_to 'Back', article_bases_path
+
+#comment
+  ul.list-group
+    = render partial: "comment", collection: @article.comments
+
+.comment_box
+  = form_tag(ajax_article_comments_path, method: :post, remote: true, autocomplete: 'off') do
+    = hidden_field_tag :article_id, @article.id
+    = text_field_tag :comment_field
+    = submit_tag :new_comment, class: "btn btn-primary"

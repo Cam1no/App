@@ -21,11 +21,12 @@ html
             = link_to "User一覧", user_bases_path
           li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
             = link_to '記事作成', new_article_basis_path
-          li
+          li[class="#{current_page?(article_bases_path) ? 'active' : '' }"]
             = link_to '記事一覧', article_bases_path
-          li
-            a[href="#"]
-              | Page 3
+          - if current_user.present?
+            li[class="#{current_page?(edit_user_basis_path(current_user)) ? 'active' : '' }"]
+              = link_to "プロフィール編集", edit_user_basis_path(current_user)
+            
         - if signed_in?
           p
             .navbar-text.navbar-right
