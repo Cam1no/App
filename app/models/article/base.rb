@@ -23,6 +23,8 @@ class Article::Base < ApplicationRecord
   has_many :photos, class_name: 'Article::Photo', foreign_key: 'article_id', dependent: :destroy, inverse_of: :article
   accepts_nested_attributes_for :photos
 
+  has_many :comments, class_name: "Article::Comment", foreign_key: "article_id", dependent: :destroy, inverse_of: :article
+
   def main_photo
     photos.first.image
   end

@@ -10,99 +10,110 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_429_040_216) do
-  create_table 'article_bases', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string   'title', null: false
-    t.text     'content',     limit: 65_535, null: false
-    t.text     'description', limit: 65_535, null: false
-    t.integer  'user_id',                   null: false
-    t.datetime 'created_at',                null: false
-    t.datetime 'updated_at',                null: false
-    t.index ['title'], name: 'index_article_bases_on_title', using: :btree
-    t.index ['user_id'], name: 'index_article_bases_on_user_id', using: :btree
+ActiveRecord::Schema.define(version: 20170503045005) do
+
+  create_table "article_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                     null: false
+    t.text     "content",     limit: 65535, null: false
+    t.text     "description", limit: 65535, null: false
+    t.integer  "user_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["title"], name: "index_article_bases_on_title", using: :btree
+    t.index ["user_id"], name: "index_article_bases_on_user_id", using: :btree
   end
 
-  create_table 'article_photos', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer  'article_id', null: false
-    t.boolean  'removed', default: false
-    t.string   'image_path'
-    t.string   'image',                      null: false
-    t.datetime 'created_at',                 null: false
-    t.datetime 'updated_at',                 null: false
-    t.index ['article_id'], name: 'index_article_photos_on_article_id', using: :btree
+  create_table "article_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["article_id", "user_id"], name: "index_article_comments_on_article_id_and_user_id", unique: true, using: :btree
+    t.index ["article_id"], name: "index_article_comments_on_article_id", using: :btree
+    t.index ["user_id"], name: "index_article_comments_on_user_id", using: :btree
   end
 
-  create_table 'article_tag_relations', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer  'tag_id'
-    t.integer  'article_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['article_id'], name: 'index_article_tag_relations_on_article_id', using: :btree
-    t.index %w[tag_id article_id], name: 'index_article_tag_relations_on_tag_id_and_article_id', unique: true, using: :btree
-    t.index ['tag_id'], name: 'index_article_tag_relations_on_tag_id', using: :btree
+  create_table "article_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id",                null: false
+    t.boolean  "removed",    default: true
+    t.string   "image",                     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["article_id"], name: "index_article_photos_on_article_id", using: :btree
   end
 
-  create_table 'article_tags', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string   'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['name'], name: 'index_article_tags_on_name', unique: true, using: :btree
+  create_table "article_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tag_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_tag_relations_on_article_id", using: :btree
+    t.index ["tag_id", "article_id"], name: "index_article_tag_relations_on_tag_id_and_article_id", unique: true, using: :btree
+    t.index ["tag_id"], name: "index_article_tag_relations_on_tag_id", using: :btree
   end
 
-  create_table 'like_articles', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer  'user_id',    null: false
-    t.integer  'article_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['article_id'], name: 'index_like_articles_on_article_id', using: :btree
-    t.index %w[user_id article_id], name: 'index_like_articles_on_user_id_and_article_id', unique: true, using: :btree
-    t.index ['user_id'], name: 'index_like_articles_on_user_id', using: :btree
+  create_table "article_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_article_tags_on_name", unique: true, using: :btree
   end
 
-  create_table 'user_bases', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string   'name'
-    t.string   'email'
-    t.string   'encrypted_password', default: '', null: false
-    t.string   'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.integer  'sign_in_count', default: 0, null: false
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.string   'current_sign_in_ip'
-    t.string   'last_sign_in_ip'
-    t.string   'confirmation_token'
-    t.datetime 'confirmed_at'
-    t.datetime 'confirmation_sent_at'
-    t.string   'unconfirmed_email'
-    t.integer  'failed_attempts', default: 0, null: false
-    t.string   'unlock_token'
-    t.datetime 'locked_at'
-    t.datetime 'created_at',                          null: false
-    t.datetime 'updated_at',                          null: false
-    t.index ['confirmation_token'], name: 'index_user_bases_on_confirmation_token', unique: true, using: :btree
-    t.index ['email'], name: 'index_user_bases_on_email', unique: true, using: :btree
-    t.index ['reset_password_token'], name: 'index_user_bases_on_reset_password_token', unique: true, using: :btree
-    t.index ['unlock_token'], name: 'index_user_bases_on_unlock_token', unique: true, using: :btree
+  create_table "like_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_like_articles_on_article_id", using: :btree
+    t.index ["user_id", "article_id"], name: "index_like_articles_on_user_id_and_article_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_like_articles_on_user_id", using: :btree
   end
 
-  create_table 'user_photos', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer  'user_id', null: false
-    t.boolean  'removed', default: false
-    t.string   'image_path'
-    t.string   'image',                      null: false
-    t.datetime 'created_at',                 null: false
-    t.datetime 'updated_at',                 null: false
-    t.index ['user_id'], name: 'index_user_photos_on_user_id', using: :btree
+  create_table "user_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["confirmation_token"], name: "index_user_bases_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_user_bases_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_user_bases_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_user_bases_on_unlock_token", unique: true, using: :btree
   end
 
-  create_table 'user_relationships', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer  'follower_id'
-    t.integer  'following_id'
-    t.datetime 'created_at',   null: false
-    t.datetime 'updated_at',   null: false
-    t.index %w[follower_id following_id], name: 'index_user_relationships_on_follower_id_and_following_id', unique: true, using: :btree
-    t.index ['follower_id'], name: 'index_user_relationships_on_follower_id', using: :btree
-    t.index ['following_id'], name: 'index_user_relationships_on_following_id', using: :btree
+  create_table "user_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                   null: false
+    t.boolean  "removed",    default: true
+    t.string   "image",                     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_user_photos_on_user_id", using: :btree
   end
+
+  create_table "user_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "index_user_relationships_on_follower_id_and_following_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_user_relationships_on_follower_id", using: :btree
+    t.index ["following_id"], name: "index_user_relationships_on_following_id", using: :btree
+  end
+
 end
