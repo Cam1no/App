@@ -10,3 +10,13 @@ cellsというgemを入れています。とても便利そう
 - gemfile
 - slimの変換
 - redisの設定
+- devise
+- userモデル
+- articleモデル
+- 写真投稿の機能
+- タグ
+- follow
+- likeお気に入り機能
+- comment機能の追加
+- like, followをajax化
+- like数, follow数をcount
