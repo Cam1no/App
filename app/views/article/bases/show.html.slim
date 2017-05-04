@@ -10,12 +10,22 @@ p
   strong Description:
   = @article.description
 
+br
+span[id="article_#{@article.id}"]
+  = render 'shared/like/like_form', article: @article
+br
+span[id="like_count_#{@article.id}"]
+  = render 'shared/like/stats', article: @article
+
+
 = image_tag @article.main_photo if @article.photos.present?
 
 = link_to 'Edit', edit_article_basis_path(@article)
 '  |
 = link_to 'Back', article_bases_path
 
+
+/ コメント
 #comment
   ul.list-group
     = render partial: "comment", collection: @article.comments
