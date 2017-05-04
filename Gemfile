@@ -12,7 +12,6 @@ gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
-gem 'annotate'
 gem 'bootstrap_form'
 gem 'carrierwave'
 gem 'devise'
@@ -85,6 +84,7 @@ group :development do
   gem 'view_source_map' # html にどのパーシャルなのかコメントでpathを記述してくれる
   gem 'web-console'
   gem 'xray-rails' # cmd+shift+x でpartialなどを可視化
+  gem 'annotate'
 end
 
 group :development, :staging do
