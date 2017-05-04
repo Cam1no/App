@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :ajax do
     namespace :article do
       resources :comments, only: %i[create]
@@ -9,7 +8,6 @@ Rails.application.routes.draw do
       resources :follows, only: %i[create destroy]
     end
   end
-
 
   namespace :article do
     resources :bases

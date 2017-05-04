@@ -45,7 +45,7 @@ class User::Base < ApplicationRecord
   has_many :photos, class_name: 'User::Photo', foreign_key: 'user_id', dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :photos
 
-  has_many :comments, class_name: "Article::Comment", foreign_key: "user_id", inverse_of: :user, dependent: :destroy
+  has_many :comments, class_name: 'Article::Comment', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)

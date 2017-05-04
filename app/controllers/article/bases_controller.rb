@@ -9,8 +9,7 @@ class Article::BasesController < ApplicationController
 
   # GET /article/bases/1
   # GET /article/bases/1.json
-  def show
-  end
+  def show; end
 
   # GET /article/bases/new
   def new
