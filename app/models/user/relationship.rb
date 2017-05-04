@@ -8,6 +8,12 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+# Indexes
+#
+#  index_user_relationships_on_follower_id                   (follower_id)
+#  index_user_relationships_on_follower_id_and_following_id  (follower_id,following_id) UNIQUE
+#  index_user_relationships_on_following_id                  (following_id)
+#
 
 class User::Relationship < ApplicationRecord
   belongs_to :following, class_name: 'User::Base'

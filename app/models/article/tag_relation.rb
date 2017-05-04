@@ -8,6 +8,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_article_tag_relations_on_article_id             (article_id)
+#  index_article_tag_relations_on_tag_id                 (tag_id)
+#  index_article_tag_relations_on_tag_id_and_article_id  (tag_id,article_id) UNIQUE
+#
 
 class Article::TagRelation < ApplicationRecord
   belongs_to :article, class_name: 'Article::Base'

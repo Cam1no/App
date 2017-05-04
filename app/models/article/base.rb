@@ -10,6 +10,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_article_bases_on_title    (title)
+#  index_article_bases_on_user_id  (user_id)
+#
 
 class Article::Base < ApplicationRecord
   belongs_to :user, class_name: 'User::Base', foreign_key: 'user_id'
