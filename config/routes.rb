@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     namespace :article do
       resources :comments, only: %i[create]
     end
+    namespace :user do
+      resources :follows, only: %i[create destroy]
+    end
   end
 
 
@@ -18,7 +21,6 @@ Rails.application.routes.draw do
         get :followings, :followers
       end
     end
-    resources :relationships, only: %i[create destroy]
   end
   resources :like_articles, only: %i[create destroy]
 end

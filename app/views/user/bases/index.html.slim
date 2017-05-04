@@ -13,11 +13,7 @@ table class="table"
         td = user.name
         td = user.email
         td = link_to "My編集", edit_user_basis_path(user)
-        - if current_user.following?(user)
-          td
-            = link_to 'Unfollow', user_relationship_path(user.id), remote: true, method: :delete, class: "btn btn-large btn-danger follow-btn"
-        - elsif current_user != user
-          td
-            = link_to 'Follow', user_relationships_path(user_id: user.id), remote: true, method: :post, class: "btn btn-large btn-primary follow-btn"
-        - else
-          td = ""
+        td[id="user_#{user.id}"]
+          = render 'shared/follow/follow_form', user: user
+        td[id="followers_#{user.id}"]
+          = render 'shared/follow/stats', user: user
