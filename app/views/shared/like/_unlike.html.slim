@@ -1,0 +1,2 @@
+= form_for(current_user.like_articles.find_by(article_id: article.id), remote: true, url: ajax_article_like_path(article.id), html: { method: :delete }) do |f|
+  = f.submit "", class: "unlike-button"

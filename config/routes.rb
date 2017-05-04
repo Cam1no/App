@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   namespace :ajax do
     namespace :article do
       resources :comments, only: %i[create]
+      resources :likes, only: %i[create destroy]
     end
     namespace :user do
       resources :follows, only: %i[create destroy]
@@ -22,5 +24,4 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :like_articles, only: %i[create destroy]
 end

@@ -59,6 +59,10 @@ class User::Base < ApplicationRecord
     following_relationships.find_by(following_id: other_user.id).destroy
   end
 
+  def like?(article)
+    like_articles.find_by(article_id: article.id).present?
+  end
+
   def main_photo
     photos.first.image
   end
