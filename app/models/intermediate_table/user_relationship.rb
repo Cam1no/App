@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_relationships
+# Table name: intermediate_table_user_relationships
 #
 #  id           :integer          not null, primary key
 #  follower_id  :integer
@@ -10,12 +10,12 @@
 #
 # Indexes
 #
-#  index_user_relationships_on_follower_id                   (follower_id)
-#  index_user_relationships_on_follower_id_and_following_id  (follower_id,following_id) UNIQUE
-#  index_user_relationships_on_following_id                  (following_id)
+#  user_relationships_follower_id   (follower_id)
+#  user_relationships_following_id  (following_id)
+#  user_relationships_unique        (follower_id,following_id) UNIQUE
 #
 
-class User::Relationship < ApplicationRecord
+class IntermediateTable::UserRelationship < ApplicationRecord
   belongs_to :following, class_name: 'User::Base'
   belongs_to :follower, class_name: 'User::Base'
   validates :following_id, presence: true

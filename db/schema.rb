@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503045005) do
+ActiveRecord::Schema.define(version: 20170504152259) do
 
   create_table "article_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                     null: false
@@ -43,16 +43,6 @@ ActiveRecord::Schema.define(version: 20170503045005) do
     t.index ["article_id"], name: "index_article_photos_on_article_id", using: :btree
   end
 
-  create_table "article_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "tag_id"
-    t.integer  "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_article_tag_relations_on_article_id", using: :btree
-    t.index ["tag_id", "article_id"], name: "index_article_tag_relations_on_tag_id_and_article_id", unique: true, using: :btree
-    t.index ["tag_id"], name: "index_article_tag_relations_on_tag_id", using: :btree
-  end
-
   create_table "article_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -60,14 +50,34 @@ ActiveRecord::Schema.define(version: 20170503045005) do
     t.index ["name"], name: "index_article_tags_on_name", unique: true, using: :btree
   end
 
-  create_table "like_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "article_id", null: false
+  create_table "intermediate_table_article_favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_like_articles_on_article_id", using: :btree
-    t.index ["user_id", "article_id"], name: "index_like_articles_on_user_id_and_article_id", unique: true, using: :btree
-    t.index ["user_id"], name: "index_like_articles_on_user_id", using: :btree
+    t.index ["article_id"], name: "article_favorites_article_id", using: :btree
+    t.index ["user_id", "article_id"], name: "article_favorites_unique", unique: true, using: :btree
+    t.index ["user_id"], name: "article_favorites_user_id", using: :btree
+  end
+
+  create_table "intermediate_table_article_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tag_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "article_tag_relations_article_id", using: :btree
+    t.index ["tag_id", "article_id"], name: "article_tag_relations_unique", unique: true, using: :btree
+    t.index ["tag_id"], name: "article_tag_relations_tag_id", using: :btree
+  end
+
+  create_table "intermediate_table_user_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "user_relationships_unique", unique: true, using: :btree
+    t.index ["follower_id"], name: "user_relationships_follower_id", using: :btree
+    t.index ["following_id"], name: "user_relationships_following_id", using: :btree
   end
 
   create_table "user_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -104,16 +114,6 @@ ActiveRecord::Schema.define(version: 20170503045005) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_user_photos_on_user_id", using: :btree
-  end
-
-  create_table "user_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "follower_id"
-    t.integer  "following_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["follower_id", "following_id"], name: "index_user_relationships_on_follower_id_and_following_id", unique: true, using: :btree
-    t.index ["follower_id"], name: "index_user_relationships_on_follower_id", using: :btree
-    t.index ["following_id"], name: "index_user_relationships_on_following_id", using: :btree
   end
 
 end

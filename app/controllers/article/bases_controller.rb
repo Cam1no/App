@@ -1,15 +1,17 @@
 class Article::BasesController < ApplicationController
-  before_action :set_article_basis, only: %i[show edit update destroy]
+  before_action :set_article_basis, only: %i[edit update destroy]
 
   # GET /article/bases
   # GET /article/bases.json
   def index
-    @article_bases = Article::Base.includes(:like_articles, :user, :tags)
+    @article_bases = Article::Base.includes(:user, :tags)
   end
 
   # GET /article/bases/1
   # GET /article/bases/1.json
-  def show; end
+  def show
+    @article = Article::Base.includes(comments: [user: [:photos]]).find(params[:id])
+  end
 
   # GET /article/bases/new
   def new
