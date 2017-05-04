@@ -9,7 +9,7 @@
 User::Base.create(name: 'yuji', email: 'yuji@gmail.com', password: '1234567890')
 
 20.times do |index|
-  User::Base.create(name: "Name#{index}", email: "yuji#{index}@gmail.com", password: "password#{index}")
+  User::Base.create(name: "Name#{index}", email: "test#{index}@gmail.com", password: "password#{index}")
 end
 
 20.times do |i|
