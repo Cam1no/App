@@ -18,4 +18,6 @@
 class Article::TagRelation < ApplicationRecord
   belongs_to :article, class_name: 'Article::Base'
   belongs_to :tag, class_name: 'Article::Tag'
+  validates :article_id, presence: true
+  validates :tag_id, presence: true
 end

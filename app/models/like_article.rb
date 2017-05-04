@@ -18,4 +18,6 @@
 class LikeArticle < ApplicationRecord
   belongs_to :user, class_name: 'User::Base'
   belongs_to :article, class_name: 'Article::Base'
+  validates :user_id, presence: true
+  validates :article_id, presence: true
 end
