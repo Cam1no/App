@@ -53,9 +53,17 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #
-  #
   #  deviseの設定
   #
-  #
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #
+  #bulletの設定
+  #
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.add_footer = true
+  end
 end
