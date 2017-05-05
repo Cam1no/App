@@ -3,8 +3,8 @@
 # Table name: intermediate_table_article_tag_relations
 #
 #  id         :integer          not null, primary key
-#  tag_id     :integer
-#  article_id :integer
+#  tag_id     :integer          not null
+#  article_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

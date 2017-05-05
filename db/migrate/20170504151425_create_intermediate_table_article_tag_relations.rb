@@ -1,8 +1,8 @@
 class CreateIntermediateTableArticleTagRelations < ActiveRecord::Migration[5.0]
   def change
     create_table :intermediate_table_article_tag_relations do |t|
-      t.integer :tag_id
-      t.integer :article_id
+      t.integer :tag_id, null: false
+      t.integer :article_id, null: false
 
       t.timestamps
     end

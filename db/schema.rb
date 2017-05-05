@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504152259) do
+ActiveRecord::Schema.define(version: 20170505063918) do
 
   create_table "article_bases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                     null: false
@@ -50,9 +50,27 @@ ActiveRecord::Schema.define(version: 20170504152259) do
     t.index ["name"], name: "index_article_tags_on_name", unique: true, using: :btree
   end
 
+  create_table "chat_chat_rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_chat_chat_rooms_on_name", using: :btree
+  end
+
+  create_table "chat_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",         limit: 65535, null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "chat_room_id",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["chat_room_id", "user_id"], name: "index_chat_messages_on_chat_room_id_and_user_id", using: :btree
+    t.index ["chat_room_id"], name: "chat_room_id", using: :btree
+    t.index ["user_id"], name: "user_id", using: :btree
+  end
+
   create_table "intermediate_table_article_favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "article_id"
+    t.integer  "user_id",    null: false
+    t.integer  "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "article_favorites_article_id", using: :btree
@@ -61,8 +79,8 @@ ActiveRecord::Schema.define(version: 20170504152259) do
   end
 
   create_table "intermediate_table_article_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "tag_id"
-    t.integer  "article_id"
+    t.integer  "tag_id",     null: false
+    t.integer  "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "article_tag_relations_article_id", using: :btree
@@ -70,9 +88,19 @@ ActiveRecord::Schema.define(version: 20170504152259) do
     t.index ["tag_id"], name: "article_tag_relations_tag_id", using: :btree
   end
 
+  create_table "intermediate_table_chat_room_user_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "chat_room_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["chat_room_id"], name: "chat_room_id", using: :btree
+    t.index ["user_id", "chat_room_id"], name: "chat_room_user_unique", unique: true, using: :btree
+    t.index ["user_id"], name: "user_id", using: :btree
+  end
+
   create_table "intermediate_table_user_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "follower_id"
-    t.integer  "following_id"
+    t.integer  "follower_id",  null: false
+    t.integer  "following_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["follower_id", "following_id"], name: "user_relationships_unique", unique: true, using: :btree

@@ -1,8 +1,8 @@
 class CreateIntermediateTableUserRelationships < ActiveRecord::Migration[5.0]
   def change
     create_table :intermediate_table_user_relationships do |t|
-      t.integer :follower_id
-      t.integer :following_id
+      t.integer :follower_id, null: false
+      t.integer :following_id, null: false
 
       t.timestamps
     end

@@ -3,8 +3,8 @@
 # Table name: intermediate_table_article_favorites
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  article_id :integer
+#  user_id    :integer          not null
+#  article_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

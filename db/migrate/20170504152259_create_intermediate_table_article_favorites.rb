@@ -1,8 +1,8 @@
 class CreateIntermediateTableArticleFavorites < ActiveRecord::Migration[5.0]
   def change
     create_table :intermediate_table_article_favorites do |t|
-      t.integer :user_id
-      t.integer :article_id
+      t.integer :user_id, null: false
+      t.integer :article_id, null: false
 
       t.timestamps
     end

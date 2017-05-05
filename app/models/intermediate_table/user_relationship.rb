@@ -3,8 +3,8 @@
 # Table name: intermediate_table_user_relationships
 #
 #  id           :integer          not null, primary key
-#  follower_id  :integer
-#  following_id :integer
+#  follower_id  :integer          not null
+#  following_id :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
