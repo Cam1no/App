@@ -19,4 +19,5 @@
 class Chat::Message < ApplicationRecord
   belongs_to :chat_room, class_name: "Chat::ChatRoom"
   belongs_to :user, class_name: "User::Base"
+  validates :text, presence: true, length: {minimum: 2, maximum: 1000}
 end

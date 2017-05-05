@@ -1,5 +1,11 @@
 h1 = @chat_room.name + "ようこそ"
 
-- if @chat_room.messages.present?
-  #messages
+= bootstrap_form_for @chat_room.messages.build(user_id: current_user.id), url: messages_path, method: :post do |f|
+  .form-group
+    = f.text_area :text, class: 'form-control'
+    small.text-muted= "From 2 to 1000 characters"  
+  = f.submit "post", class: "btn btn-primary btn-lg"
+
+#messages[data-chat-room-id = @chat_room.id]
+  - if @chat_room.messages.present?
     = render @chat_room.messages

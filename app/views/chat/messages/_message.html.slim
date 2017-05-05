@@ -1,0 +1,12 @@
+- if message
+  .card
+    .card-block
+      .row
+        .col-md-1
+          | hoge
+        .col-md-11
+          p.card-text
+            span.text-muted
+              = message.user.name + "   at   " + message.created_at.to_s + "  says   "
+              br
+              = message.text
