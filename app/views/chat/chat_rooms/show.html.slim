@@ -1,0 +1,5 @@
+h1 = @chat_room.name + "ようこそ"
+
+- if @chat_room.messages.present?
+  #messages
+    = render @chat_room.messages

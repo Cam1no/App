@@ -26,6 +26,8 @@ html
           - if current_user.present?
             li[class="#{current_page?(edit_user_basis_path(current_user)) ? 'active' : '' }"]
               = link_to "プロフィール編集", edit_user_basis_path(current_user)
+          li[class="#{current_page?(chat_rooms_path) ? 'active' : '' }"]
+            = link_to 'Chat Room 一覧', chat_rooms_path
             
         - if signed_in?
           p

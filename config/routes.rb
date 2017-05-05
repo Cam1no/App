@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
+  resources :chat_rooms, only: %i[index new create show], module: "chat"
+
   namespace :ajax do
     namespace :article do
       resources :comments, only: %i[create]

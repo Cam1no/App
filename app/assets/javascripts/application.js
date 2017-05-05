@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap3/bootstrap.min
 //= require toastr_rails
+//= require cable
 //= require_tree .
 
 

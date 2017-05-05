@@ -1,0 +1,6 @@
+h1 = "Add Chat Room"
+
+= form_for @chat_room, url: chat_rooms_path, method: :post do |f|
+  .form-group
+    = f.text_field :name, class: "form-control"
+    = f.submit "Add!", class: "btn btn-primary"
