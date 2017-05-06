@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   #chat
   mount ActionCable.server => '/cable'
   resources :chat_rooms, only: %i[index new create show], module: "chat"
+  post "chat_rooms/join", to: 'chat/chat_rooms#join', as: "join_chat_room"
+
   resources :messages, only: %i[create], module: "chat"
 
   namespace :ajax do

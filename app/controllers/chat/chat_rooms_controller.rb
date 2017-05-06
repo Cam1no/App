@@ -14,12 +14,20 @@ class Chat::ChatRoomsController < ApplicationController
 
   def create
     @chat_room = current_user.chat_rooms.build(chat_room_params)
-    if @chat_room.save
+    if @chat_room.save!
+      current_user.chat_room_relations.create!(chat_room_id: @chat_room.id)
       flash[:success] = 'Chat room added!'
       redirect_to chat_rooms_path
     else
       render 'new'
     end
+  end
+
+  def join
+    chat_room_id = params[:chat_room_id]
+    current_user.chat_room_relations.create!(chat_room_id: chat_room_id)
+    flash[:notice] = "ChatRoomに参加しました"
+    redirect_to chat_room_path(chat_room_id)
   end
 
   private

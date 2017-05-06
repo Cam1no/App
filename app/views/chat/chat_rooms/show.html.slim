@@ -1,12 +1,14 @@
 h1 = @chat_room.name + "ようこそ"
 
-= bootstrap_form_for @chat_room.chat_messages.build(user_id: current_user.id), url: messages_path, method: :post, remote: true do |f|
-  .form-group
-    = f.text_area :text, class: 'form-control'
-    = f.hidden_field :chat_room_id, value: @chat_room.id
-    = f.hidden_field :user_id, value: current_user.id
-    small.text-muted= "From 2 to 1000 characters"  
-  = f.submit "post", class: "btn btn-primary btn-lg", :"data-behavior" => "chat_room"
-
+- if current_user.join?(@chat_room)
+  = bootstrap_form_for @chat_room.chat_messages.build(user_id: current_user.id), url: messages_path, method: :post, remote: true do |f|
+    .form-group
+      = f.text_area :text, class: 'form-control'
+      = f.hidden_field :chat_room_id, value: @chat_room.id
+      = f.hidden_field :user_id, value: current_user.id
+      small.text-muted= "From 2 to 1000 characters"  
+    = f.submit "post", class: "btn btn-primary btn-lg", :"data-behavior" => "chat_room"
+- else
+  - flash[:notice] = "ChatRoomに参加するとメッセージを送ることができます"
 div[id="messages"]
   = render partial: "chat/messages/message", collection: @chat_room.chat_messages

@@ -78,4 +78,8 @@ class User::Base < ApplicationRecord
   def main_photo
     photos.first.image
   end
+
+  def join?(chat_room)
+    chat_rooms.include?(chat_room)
+  end
 end
