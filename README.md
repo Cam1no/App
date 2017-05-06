@@ -1,8 +1,15 @@
 # README
-Railsの初期設定を終えています。
-database.ymlを書き換え、renameというgemを使ってApplicationNameを変更すればすぐに使えます。
-cellsというgemを入れています。とても便利そう
 
+```shell
+git clone https://github.com/Cam1no/App.git
+cd App
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+
+loginするaddress: admin@gmail.com
+password: 1234567890
 
 - generatorの設定
 - bootstrapの設定(vendor以下に追加してるので便宜削除)
@@ -20,3 +27,4 @@ cellsというgemを入れています。とても便利そう
 - comment機能の追加
 - like, followをajax化
 - like数, follow数をcount
+- chat機能

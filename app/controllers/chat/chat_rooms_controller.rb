@@ -1,5 +1,4 @@
 class Chat::ChatRoomsController < ApplicationController
-
   def index
     @chat_rooms = ::Chat::ChatRoom.all
   end
@@ -26,7 +25,7 @@ class Chat::ChatRoomsController < ApplicationController
   def join
     chat_room_id = params[:chat_room_id]
     current_user.chat_room_relations.create!(chat_room_id: chat_room_id)
-    flash[:notice] = "ChatRoomに参加しました"
+    flash[:notice] = 'ChatRoomに参加しました'
     redirect_to chat_room_path(chat_room_id)
   end
 
@@ -35,5 +34,4 @@ class Chat::ChatRoomsController < ApplicationController
   def chat_room_params
     params.require(:chat_chat_room).permit(:name)
   end
-
 end

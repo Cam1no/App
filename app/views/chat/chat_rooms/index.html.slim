@@ -2,7 +2,7 @@ h1
   | Chat Room
 
 ul
-  = render @chat_rooms
+  = render @chat_rooms if @chat_rooms.present?
 
 p.lead
   = link_to "New Chat Room", new_chat_room_path, class: "btn btn-primary"

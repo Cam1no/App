@@ -11,4 +11,5 @@ h1 = @chat_room.name + "ようこそ"
 - else
   - flash[:notice] = "ChatRoomに参加するとメッセージを送ることができます"
 div[id="messages"]
-  = render partial: "chat/messages/message", collection: @chat_room.chat_messages
+  ul.list-group
+    = render partial: "chat/messages/message", collection: @chat_room.chat_messages

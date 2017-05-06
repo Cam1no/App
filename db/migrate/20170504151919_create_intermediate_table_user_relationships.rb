@@ -6,8 +6,8 @@ class CreateIntermediateTableUserRelationships < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :intermediate_table_user_relationships, :follower_id, name: "user_relationships_follower_id"
-    add_index :intermediate_table_user_relationships, :following_id, name: "user_relationships_following_id"
-    add_index :intermediate_table_user_relationships, %i[follower_id following_id], unique: true, name: "user_relationships_unique"
+    add_index :intermediate_table_user_relationships, :follower_id, name: 'user_relationships_follower_id'
+    add_index :intermediate_table_user_relationships, :following_id, name: 'user_relationships_following_id'
+    add_index :intermediate_table_user_relationships, %i[follower_id following_id], unique: true, name: 'user_relationships_unique'
   end
 end

@@ -75,6 +75,7 @@ group :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'html2slim' # erbからhamlへ変換する
   gem 'listen'
   gem 'pry-state'
@@ -84,7 +85,6 @@ group :development do
   gem 'view_source_map' # html にどのパーシャルなのかコメントでpathを記述してくれる
   gem 'web-console'
   gem 'xray-rails' # cmd+shift+x でpartialなどを可視化
-  gem 'annotate'
 end
 
 group :development, :staging do

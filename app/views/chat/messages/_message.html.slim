@@ -1,5 +1,4 @@
 - if message.text.present?
-  = message.user.name
-  = "           +               "
-  = message.text
-  br
+  li.list-group-item
+    = message.user.name + ":  "
+    = message.text

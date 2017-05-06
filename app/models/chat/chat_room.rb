@@ -13,8 +13,8 @@
 #
 
 class Chat::ChatRoom < ApplicationRecord
-  has_many :chat_room_relations, foreign_key: "chat_room_id", class_name: "IntermediateTable::ChatRoomUserRelation", dependent: :destroy
+  has_many :chat_room_relations, foreign_key: 'chat_room_id', class_name: 'IntermediateTable::ChatRoomUserRelation', dependent: :destroy
   has_many :users, through: :chat_room_relations
 
-  has_many :chat_messages, foreign_key: "chat_room_id", class_name: "Chat::Message", dependent: :destroy
+  has_many :chat_messages, foreign_key: 'chat_room_id', class_name: 'Chat::Message', dependent: :destroy
 end

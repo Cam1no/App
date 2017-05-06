@@ -16,6 +16,6 @@
 #
 
 class IntermediateTable::ChatRoomUserRelation < ApplicationRecord
-  belongs_to :user, class_name: "User::Base"
-  belongs_to :chat_room, class_name: "Chat::ChatRoom"
+  belongs_to :user, class_name: 'User::Base'
+  belongs_to :chat_room, class_name: 'Chat::ChatRoom'
 end

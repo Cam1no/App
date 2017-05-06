@@ -6,8 +6,8 @@ class CreateIntermediateTableChatRoomUserRelations < ActiveRecord::Migration[5.0
 
       t.timestamps
     end
-    add_index :intermediate_table_chat_room_user_relations, :user_id, name: "user_id"
-    add_index :intermediate_table_chat_room_user_relations, :chat_room_id, name: "chat_room_id"
-    add_index :intermediate_table_chat_room_user_relations, [:user_id, :chat_room_id], unique: true, name: "chat_room_user_unique"
+    add_index :intermediate_table_chat_room_user_relations, :user_id, name: 'user_id'
+    add_index :intermediate_table_chat_room_user_relations, :chat_room_id, name: 'chat_room_id'
+    add_index :intermediate_table_chat_room_user_relations, %i[user_id chat_room_id], unique: true, name: 'chat_room_user_unique'
   end
 end

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User::Base.create(name: 'yuji', email: 'yuji@gmail.com', password: '1234567890')
+User::Base.create(name: 'admin', email: 'admin@gmail.com', password: '1234567890')
 
 20.times do |index|
   User::Base.create(name: "Name#{index}", email: "test#{index}@gmail.com", password: "password#{index}")
