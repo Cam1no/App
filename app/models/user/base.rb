@@ -57,7 +57,7 @@ class User::Base < ApplicationRecord
   has_many :chat_room_relations, foreign_key: "user_id", class_name: "IntermediateTable::ChatRoomUserRelation", dependent: :destroy
   has_many :chat_rooms, through: :chat_room_relations
 
-  has_many :messages, foreign_key: "user_id", class_name: "Chat::Message", dependent: :destroy
+  has_many :chat_messages, foreign_key: "user_id", class_name: "Chat::Message", dependent: :destroy
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)

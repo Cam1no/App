@@ -67,4 +67,9 @@ Rails.application.configure do
     Bullet.add_footer = false
     Bullet.rails_logger = true
   end
+
+  #
+  # action cable
+  #
+  config.action_cable.url = "ws://localhost:3000/cable"
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
 
+  #chat
+  mount ActionCable.server => '/cable'
   resources :chat_rooms, only: %i[index new create show], module: "chat"
   resources :messages, only: %i[create], module: "chat"
 
