@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap3/bootstrap.min
+//= require bootflat/icheck.min.js
+//= require bootflat/jquery.fs.selecter.min.js
+//= require bootflat/jquery.fs.stepper.min.js
 //= require toastr_rails
 //= require cable
 //= require_tree .

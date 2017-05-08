@@ -1,0 +1,37 @@
+.row
+  .col-md-12
+    nav.navbar.navbar-inverse[role="navigation"]
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle[type="button" data-toggle="collapse" data-target="#navbar-collapse-8"]
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand[href="#{root_path}"]
+            - if current_user.present? && current_user.try(:name).present?
+               = "#{current_user.name}"
+            - else
+              | Guest
+        #navbar-collapse-8.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li[class="#{current_page?(user_bases_path) ? 'active' : '' }"]
+              = link_to "User一覧", user_bases_path
+            li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
+              = link_to '記事作成', new_article_basis_path
+            li[class="#{current_page?(article_bases_path) ? 'active' : '' }"]
+              = link_to '記事一覧', article_bases_path
+            - if current_user.present?
+              li[class="#{current_page?(edit_user_basis_path(current_user)) ? 'active' : '' }"]
+                = link_to "プロフィール編集", edit_user_basis_path(current_user)
+            li[class="#{current_page?(chat_rooms_path) ? 'active' : '' }"]
+              = link_to 'Chat Room 一覧', chat_rooms_path
+          - if signed_in?
+            .navbar-right
+              = button_to "Logout", destroy_basis_session_path, method: :delete, class: "btn btn-danger navbar-btn"
+          - else
+            .navbar-right
+              = button_to "Login", new_basis_session_path, class: "btn btn-primary navbar-btn"
+            .navbar-right[style="padding-right: 5px"]
+              = button_to "Registor", new_basis_registration_path, class: "btn btn-danger navbar-btn"
