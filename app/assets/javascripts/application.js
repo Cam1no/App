@@ -13,13 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap3/bootstrap.min
+//= require bootstrap3/bootstrap.min.js
 //= require bootflat/icheck.min.js
 //= require bootflat/jquery.fs.selecter.min.js
 //= require bootflat/jquery.fs.stepper.min.js
 //= require toastr_rails
 //= require cable
 //= require_tree .
+//= require welcome/top.js
 
 
 toastr.options = {

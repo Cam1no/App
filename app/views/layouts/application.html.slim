@@ -1,6 +1,8 @@
 doctype html
 html
   head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
     title
       | App
     = csrf_meta_tags
@@ -10,8 +12,7 @@ html
   body
     = render 'toastr_rails/flash'
     = render 'shared/header'
-    .container-fluid
+    / .container-fluid
+    .container
       = yield
-
-    
     = render "shared/footer"

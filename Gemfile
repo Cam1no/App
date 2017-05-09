@@ -34,7 +34,6 @@ gem 'config'
 gem 'draper', '3.0.0.pre1' # rails5に対応
 gem 'enumerize', github: 'brainspec/enumerize', branch: :master
 gem 'font-awesome-rails'
-gem 'font-awesome-rails'
 gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'
 gem 'rails-i18n', '~> 5.0', '>= 5.0.1'
 gem 'redis-rails'
