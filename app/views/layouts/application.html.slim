@@ -10,9 +10,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = action_cable_meta_tag
   body
-    = render 'toastr_rails/flash'
-    = render 'shared/header'
-    / .container-fluid
+    .toastr_flash
+      = render 'toastr_rails/flash'
+    .shared-header
+      = render 'shared/header'
     .container
       = yield
-    = render "shared/footer"
+    .shared-footer
+      = render "shared/footer"

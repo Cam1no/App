@@ -29,9 +29,9 @@
               = link_to 'Chat Room 一覧', chat_rooms_path
           - if signed_in?
             .navbar-right
-              = button_to "Logout", destroy_basis_session_path, method: :delete, class: "btn btn-danger navbar-btn"
+              = link_to "Logout", destroy_basis_session_path, method: :delete, class: "btn btn-danger navbar-btn"
           - else
             .navbar-right
-              = button_to "Login", new_basis_session_path, class: "btn btn-primary navbar-btn"
+              = link_to "Login", new_basis_session_path, class: "btn btn-primary navbar-btn"
             .navbar-right[style="padding-right: 5px"]
-              = button_to "Registor", new_basis_registration_path, class: "btn btn-danger navbar-btn"
+              = link_to "Registor", new_basis_registration_path, class: "btn btn-danger navbar-btn"
