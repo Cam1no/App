@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   devise_for :bases, class_name: 'User::Base', path: '/'
   root to: 'welcome#top'
   namespace :user do
-    resources :bases, only: %i[index edit update] do
+    resources :bases, only: %i[index edit update show] do
       member do
         get :followings, :followers
       end

@@ -1,12 +1,10 @@
-p#notice = notice
-
-p
-  strong Name:
-  = @user.name
-p
-  strong Email:
-  = @user.email
-
+.container
+  .row
+    .col-md-4
+      = render "shared/thumbnail"
+    .col-md-8
+      | hoeg
+    
 = link_to 'Edit', edit_user_basis_path(@user)
 '  |
 = link_to 'Back', user_bases_path
