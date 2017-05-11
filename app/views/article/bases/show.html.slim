@@ -1,12 +1,82 @@
-p
-  strong Title:
-  = @article.title
-p
-  strong Content:
-  = @article.content
-p
-  strong Description:
-  = @article.description
+- content_for :header do
+  = render "shared/header_content"
+.article-controller-show
+  section
+    .container
+      .row
+        .col-lg-8
+          .row
+            .col-lg-12.col-md-12
+              aside
+                = image_tag("article_show.jpg", class: "img-responsive")
+                .content-title
+                  .text-center
+                    h3
+                      a[href="#"]
+                        = @article.title
+  
+          = render "shared/comment_box"
+               
+        .col-lg-4
+          .widget-sidebar
+            = render 'shared/thumbnail'
+          .widget-sidebar
+            h2.title-widget-sidebar
+              | // RECENT POST 
+            .content-widget-sidebar
+              ul
+                li.recent-post
+                  .post-img
+                    img.img-responsive[src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg"]
+                  a[href="#"]
+
+                    h5
+                      | Excepteur sint occaecat cupi non proident laborum. 
+                    p
+                      small
+                        i.fa.fa-calendar[data-original-title="" title=""]
+
+                        |  30 Juni 2014 
+                hr
+                li.recent-post
+                  .post-img
+                    img.img-responsive[src="https://lh3.googleusercontent.com/-ojLI116-Mxk/WM1ZIwdnuwI/AAAAAAAADeo/4K6VpwIPSfgsmlXJB5o0N8scuI3iW4OpwCJoC/w424-h318-n-rw/thumbnail6.jpg"]
+                  a[href="#"]
+
+                    h5
+                      | Excepteur sint occaecat cupi non proident laborum. 
+                    p
+                      small
+                        i.fa.fa-calendar[data-original-title="" title=""]
+
+                        |  30 Juni 2014 
+                hr
+                li.recent-post
+                  .post-img
+                    img.img-responsive[src="https://lh3.googleusercontent.com/-TrK1csbtHRs/WM1ZI1SIUNI/AAAAAAAADeo/OkiUjuad6skWl9ugxbiIA_436OwsWKBNgCJoC/w424-h318-n-rw/thumbnail3.jpg"]
+                  a[href="#"]
+
+                    h5
+                      | Excepteur sint occaecat cupi non proident laborum. 
+                    p
+                      small
+                        i.fa.fa-calendar[data-original-title="" title=""]
+
+                        |  30 Juni 2014 
+                hr
+                li.recent-post
+                  .post-img
+                    img.img-responsive[src="https://lh3.googleusercontent.com/-UKfIhJSBW9M/WM1ZI8ou34I/AAAAAAAADeo/vlLGY29147AYLaxUW29ZXJlun115BhkhgCJoC/w424-h318-n-rw/thumbnail7.jpg"]
+                  a[href="#"]
+
+                    h5
+                      | Excepteur sint occaecat cupi non proident laborum. 
+                    p
+                      small
+                        i.fa.fa-calendar[data-original-title="" title=""]
+
+                        |  30 Juni 2014 
+          
 
 br
 span[id="article_#{@article.id}"]
@@ -14,15 +84,7 @@ span[id="article_#{@article.id}"]
 br
 span[id="like_count_#{@article.id}"]
   = render 'shared/like/stats', article: @article
-
-
-= image_tag @article.main_photo if @article.photos.present?
-
-= link_to 'Edit', edit_article_basis_path(@article)
-'  |
-= link_to 'Back', article_bases_path
-
-
+  
 / コメント
 #comment
   ul.list-group
@@ -33,3 +95,19 @@ span[id="like_count_#{@article.id}"]
     = hidden_field_tag :article_id, @article.id
     = text_field_tag :comment_field
     = submit_tag :new_comment, class: "btn btn-primary"
+
+javascript:
+  $(document).ready(function(){ $('[data-toggle="tooltip"]').tooltip(); } );
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) { 
+    acc[i].onclick = function() { 
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight){ 
+        panel.style.maxHeight = null;
+      } else { 
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    }
+  } 
