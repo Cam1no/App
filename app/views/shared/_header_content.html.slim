@@ -3,11 +3,14 @@
     .row
       .col-lg-12.col-md-12
         .content-top
-          span[style="font-size: 16px;color: #fff;"]
-            | Sumit Kumar 
-          span.pull-right
-            / a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
-            /   i.fa.fa-comments
-            /   |  30 
-            span[data-toggle="tooltip" data-placement="right" title="Loved" id="article_#{article.id}"]
-              = render 'shared/like/like_form', article: article
+          .row
+            .col-lg-8.col-md-8
+              span[style="font-size: 35px;color: #fff;"]
+                = article.title
+            .col-lg-4.col-md-4
+              span.pull-right
+                / a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
+                /   i.fa.fa-comments
+                /   |  30 
+                span[data-toggle="tooltip" data-placement="right" title="Loved" id="article_#{article.id}"]
+                  = render 'shared/like/like_form', article: article
