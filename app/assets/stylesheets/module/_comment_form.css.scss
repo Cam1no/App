@@ -38,12 +38,15 @@ body .no-padding {
   border-radius: 4px;
   float: left;
   width: 100%;
-  margin-bottom: 50px;
   box-shadow: 1px 4px 16px 3px #c7c5c7;
   -moz-box-shadow: 1px 4px 16px 3px #c7c5c7;
   -webkit-box-shadow: 1px 4px 16px 3px #c7c5c7;
   -ms-box-shadow: 1px 4px 16px 3px #c7c5c7;
   -o-box-shadow: 1px 4px 16px 3px #c7c5c7;
+  margin-bottom: 50px;
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 .status-upload form {
   float: left;
