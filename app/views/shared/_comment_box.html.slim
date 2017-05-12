@@ -1,0 +1,17 @@
+.comment-box-module
+  .panel-default.widget
+    .panel-heading
+      span.glyphicon.glyphicon-comment
+      h3.panel-title
+        |  Recent Comments 
+      span.label.label-info
+        = article.comments.count
+    .panel-body
+      #comment
+        ul.list-group
+          = render partial: "comment", collection: article.comments
+      
+      - if article.comments.count > 5
+        a.btn.btn-primary.btn-sm.btn-block[href="#" role="button"]
+          span.glyphicon.glyphicon-refresh
+          |  More 

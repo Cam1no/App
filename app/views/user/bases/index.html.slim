@@ -5,7 +5,8 @@ table class="table"
       th Email
       th 編集
       th Follow
-      th
+      th Follow Count
+      th show
 
   tbody
     - @user_bases.each do |user|
@@ -17,3 +18,4 @@ table class="table"
           = render 'shared/follow/follow_form', user: user
         td[id="followers_#{user.id}"]
           = render 'shared/follow/stats', user: user
+        td = link_to "show", user_basis_path(user)

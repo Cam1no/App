@@ -1,0 +1,18 @@
+.header-content-module{
+  background-color: #A0D468;
+  .content-top {
+    padding: 25px 15px;
+    position: relative;
+    height: 100px;
+    span a {
+      color: #fff;
+      display: inline-block;
+      padding: 6px 5px;
+      text-decoration: none;
+      transition: 0.5s;
+      &:hover {
+        color: #F39C12;
+      }
+    }
+  }
+}

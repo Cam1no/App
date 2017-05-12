@@ -1,6 +1,29 @@
+/ li.list-group-item
+/   - if comment.user.photos.present?
+/     = image_tag comment.user.photos.last.image.thumb_s, class: "pull-left"
+/   - else
+/     = image_tag "shared/user.png", class: "pull-left"
+/   = comment.text.to_s
 li.list-group-item
-  - if comment.user.photos.present?
-    = image_tag comment.user.photos.last.image.thumb_s, class: "pull-left"
-  - else
-    = image_tag "shared/user.png", class: "pull-left"
-  = comment.text.to_s
+  .row
+    .col-xs-2.col-md-1
+      img.img-circle.img-responsive[src="http://placehold.it/80" alt=""]
+    .col-xs-10.col-md-11
+      div
+        / a[href="http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html"]
+        /   = comment.text.to_s
+        .mic-info
+          |  By:
+          = link_to comment.user.name, '#'
+          = comment.created_at.strftime("%Y-%m-%d %H:%M")
+      .comment-text
+        = comment.text.to_s
+      .action
+        button.btn.btn-primary.btn-xs[type="button" title="Edit"]
+          span.glyphicon.glyphicon-pencil
+      
+        button.btn.btn-success.btn-xs[type="button" title="Approved"]
+          span.glyphicon.glyphicon-ok
+      
+        button.btn.btn-danger.btn-xs[type="button" title="Delete"]
+          span.glyphicon.glyphicon-trash
