@@ -1,5 +1,5 @@
 - content_for :header do
-  = render "shared/header_content"
+  = render "shared/header_content", article: @article
 .article-controller-show
   section
     .container
@@ -39,8 +39,10 @@
                   | Sumit Kumar Text Text Text Text Text Text Text Text Text 
                   | Sumit Kumar Text Text Text Text Text Text Text Text Text 
                   | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-
-          = render "shared/comment_box"
+          
+          = render "shared/comment_box", article: @article
+          
+          = render "shared/comment_form"
                
         .col-lg-3
           .widget-sidebar
@@ -101,38 +103,3 @@
                         i.fa.fa-calendar[data-original-title="" title=""]
 
                         |  30 Juni 2014 
-          
-
-br
-span[id="article_#{@article.id}"]
-  = render 'shared/like/like_form', article: @article
-br
-span[id="like_count_#{@article.id}"]
-  = render 'shared/like/stats', article: @article
-  
-/ コメント
-#comment
-  ul.list-group
-    = render partial: "comment", collection: @article.comments
-
-.comment_box
-  = form_tag(ajax_article_comments_path, method: :post, remote: true, autocomplete: 'off') do
-    = hidden_field_tag :article_id, @article.id
-    = text_field_tag :comment_field
-    = submit_tag :new_comment, class: "btn btn-primary"
-
-javascript:
-  $(document).ready(function(){ $('[data-toggle="tooltip"]').tooltip(); } );
-  var acc = document.getElementsByClassName("accordion");
-  var i;
-  for (i = 0; i < acc.length; i++) { 
-    acc[i].onclick = function() { 
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight){ 
-        panel.style.maxHeight = null;
-      } else { 
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    }
-  } 
