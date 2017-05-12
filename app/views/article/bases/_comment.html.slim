@@ -15,7 +15,7 @@ li.list-group-item
         .mic-info
           |  By:
           = link_to comment.user.name, '#'
-          = comment.created_at
+          = comment.created_at.strftime("%Y-%m-%d %H:%M")
       .comment-text
         = comment.text.to_s
       .action
