@@ -26,6 +26,8 @@ gem 'rmagick'
 gem 'toastr_rails'
 gem 'turbolinks', '~> 5'
 gem 'compass-rails'
+gem 'rails-bootstrap-markdown'
+gem 'bootstrap-sass'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development

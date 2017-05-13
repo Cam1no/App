@@ -74,30 +74,7 @@
                       a[href="#"]
                         = @article.title
                 .content-footer
-                  h1= "こんにちは"
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  h2= "こんばんわ"
-                  hr
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  h3= "Hello"
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  h4= "World"
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
-                  | Sumit Kumar Text Text Text Text Text Text Text Text Text 
+                  = @article.content 
           
           = render "shared/comment_box", article: @article
           

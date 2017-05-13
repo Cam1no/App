@@ -17,10 +17,12 @@
 //= require bootflat/icheck.min.js
 //= require bootflat/jquery.fs.selecter.min.js
 //= require bootflat/jquery.fs.stepper.min.js
+//= require bootstrap-markdown-bundle
+//= require bootstrap-sprockets
 //= require toastr_rails
 //= require cable
 //= require_tree .
-//= require welcome/top.js
+
 
 
 toastr.options = {

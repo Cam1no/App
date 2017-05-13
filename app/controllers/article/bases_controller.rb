@@ -10,7 +10,7 @@ class Article::BasesController < ApplicationController
   # GET /article/bases/1
   # GET /article/bases/1.json
   def show
-    @article = Article::Base.includes(comments: [user: [:photos]]).find(params[:id])
+    @article = Article::Base.includes(:comments).find(params[:id])
   end
 
   # GET /article/bases/new
