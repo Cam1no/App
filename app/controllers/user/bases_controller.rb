@@ -13,14 +13,14 @@ class User::BasesController < ApplicationController
 
   # GET /user/bases/1/edit
   def edit
-    @user.photos.build
+    @user.image.cache! unless @user.image.blank?
   end
 
   # PATCH/PUT /user/bases/1
   # PATCH/PUT /user/bases/1.json
   def update
     if @user.update(user_basis_params)
-      redirect_to root_path
+      redirect_to user_basis_path(@user)
     else
       render 'edit'
     end
@@ -30,10 +30,7 @@ class User::BasesController < ApplicationController
   # DELETE /user/bases/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to user_bases_url, notice: 'Base was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_bases_url, notice: 'Base was successfully destroyed.'
   end
 
   private
@@ -45,6 +42,6 @@ class User::BasesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_basis_params
-    params.require(:user_base).permit(:name, :email, photos_attributes: [:image])
+    params.require(:user_base).permit(:name, :email, :sentence, :image, :image_cache)
   end
 end
