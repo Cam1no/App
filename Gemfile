@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'rmagick'
 gem 'toastr_rails'
 gem 'turbolinks', '~> 5'
-
+gem 'compass-rails'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
@@ -33,7 +33,7 @@ gem 'turbolinks', '~> 5'
 # 追加したgem
 gem 'cells'
 gem 'config'
-gem 'draper', '3.0.0.pre1' # rails5に対応
+gem 'draper'
 gem 'enumerize', github: 'brainspec/enumerize', branch: :master
 gem 'font-awesome-rails'
 gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'

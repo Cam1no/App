@@ -3,8 +3,10 @@
 # Table name: user_bases
 #
 #  id                     :integer          not null, primary key
-#  name                   :string(255)
-#  email                  :string(255)
+#  name                   :string(255)      default("Guest"), not null
+#  email                  :string(255)      not null
+#  sentence               :text(65535)
+#  image                  :string(255)
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
@@ -28,11 +30,13 @@
 #
 #  index_user_bases_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_user_bases_on_email                 (email) UNIQUE
+#  index_user_bases_on_name                  (name) UNIQUE
 #  index_user_bases_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_user_bases_on_unlock_token          (unlock_token) UNIQUE
 #
 
 class User::Base < ApplicationRecord
+  mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -48,9 +52,6 @@ class User::Base < ApplicationRecord
 
   has_many :like_articles, foreign_key: 'user_id', class_name: 'IntermediateTable::ArticleFavorite', dependent: :destroy
   has_many :likes, through: :like_articles, source: :article
-
-  has_many :photos, class_name: 'User::Photo', foreign_key: 'user_id', dependent: :destroy, inverse_of: :user
-  accepts_nested_attributes_for :photos
 
   has_many :comments, class_name: 'Article::Comment', foreign_key: 'user_id', inverse_of: :user, dependent: :destroy
 
@@ -73,10 +74,6 @@ class User::Base < ApplicationRecord
 
   def like?(article)
     like_articles.find_by(article_id: article.id).present?
-  end
-
-  def main_photo
-    photos.first.image
   end
 
   def join?(chat_room)

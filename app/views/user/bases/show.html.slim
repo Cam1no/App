@@ -1,10 +1,472 @@
-.container
-  .row
-    .col-md-4
-      = render "shared/thumbnail"
-    .col-md-8
-      | hoeg
-    
-= link_to 'Edit', edit_user_basis_path(@user)
-'  |
-= link_to 'Back', user_bases_path
+.user-base-controller-show
+  .mainbody.container-fluid
+    .row
+      div[style="padding-top:20px;"]
+        |   
+      .col-lg-3.col-md-3
+        = render 'shared/thumbnail', user: @user
+      .col-lg-9.col-md-9.col-sm-12.col-xs-12
+        .panel.panel-default
+          .panel-body
+            .pull-left
+              a[href="#"]
+                img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;"]
+            h4
+              a[href="#" style="text-decoration:none;"]
+                strong
+                  | John Doe 
+              |  – 
+              small
+                small
+                  a[href="#" style="text-decoration:none; color:grey;"]
+                    i
+                      i.fa.fa-clock-o[aria-hidden="true"]
+
+                      |  42 minutes ago 
+            span
+
+            .navbar-right
+              .dropdown
+                button#dd1.btn.btn-link.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+                  i.fa.fa-cog[aria-hidden="true"]
+
+                  span.caret
+
+                ul.dropdown-menu[aria-labelledby="dd1" style="float: right;"]
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-exclamation-triangle[aria-hidden="true"]
+
+                      |  Report 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-ban[aria-hidden="true"]
+
+                      |  Ignore 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-bell[aria-hidden="true"]
+
+                      |  Enable notifications for this post 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-eye-slash[aria-hidden="true"]
+
+                      |  Hide 
+                  li.divider[role="separator"]
+
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-trash[aria-hidden="true"]
+
+                      |  Delete 
+            hr
+            .post-content
+              p
+                | Simple post content example. 
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+            hr
+            div
+              .pull-right.btn-group-xs
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-heart[aria-hidden="true"]
+
+                  |  Like 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-retweet[aria-hidden="true"]
+
+                  |  Reshare 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-comment[aria-hidden="true"]
+
+                  |  Comment 
+              .pull-left
+                p.text-muted[style="margin-left:5px;"]
+                  i.fa.fa-globe[aria-hidden="true"]
+
+                  |  Public 
+              br
+            hr
+            .media
+              .pull-left
+                a[href="#"]
+                  img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;"]
+              .media-body
+                textarea.form-control[rows="1" placeholder="Comment"]
+
+        .panel.panel-default
+          .panel-body
+            .pull-left
+              a[href="#"]
+                img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;"]
+            h4
+              a[href="#" style="text-decoration:none;"]
+                strong
+                  | John Doe 
+              |  – 
+              small
+                small
+                  a[href="#" style="text-decoration:none; color:grey;"]
+                    i
+                      i.fa.fa-clock-o[aria-hidden="true"]
+
+                      |  42 minutes ago 
+            span
+
+            .navbar-right
+              .dropdown
+                button#dd1.btn.btn-link.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+                  i.fa.fa-cog[aria-hidden="true"]
+
+                  span.caret
+
+                ul.dropdown-menu[aria-labelledby="dd1" style="float: right;"]
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-exclamation-triangle[aria-hidden="true"]
+
+                      |  Report 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-ban[aria-hidden="true"]
+
+                      |  Ignore 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-bell[aria-hidden="true"]
+
+                      |  Enable notifications for this post 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-eye-slash[aria-hidden="true"]
+
+                      |  Hide 
+                  li.divider[role="separator"]
+
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-trash[aria-hidden="true"]
+
+                      |  Delete 
+            hr
+            .post-content
+              .panel.panel-default
+                .panel-body
+                  .pull-left
+                    a[href="#"]
+                      img.media-object.img-circle[src="https://diaspote.org/uploads/images/thumb_large_283df6397c4db3fe0344.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;"]
+                  h4
+                    a[href="#" style="text-decoration:none;"]
+                      strong
+                        | ✪ SтeғOғғιcιel ✪ ツ 
+                    |  – 
+                    small
+                      small
+                        a[href="#" style="text-decoration:none; color:grey;"]
+                          i
+                            i.fa.fa-clock-o[aria-hidden="true"]
+
+                            |  about 15 hours ago 
+                  hr
+                  .post-content
+                    |  Reshare post example. 
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+            hr
+            div
+              .pull-right.btn-group-xs
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-heart[aria-hidden="true"]
+
+                  |  Like 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-retweet[aria-hidden="true"]
+
+                  |  Reshare 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-comment[aria-hidden="true"]
+
+                  |  Comment 
+              .pull-left
+                p.text-muted[style="margin-left:5px;"]
+                  i.fa.fa-globe[aria-hidden="true"]
+
+                  |  Public 
+              br
+            hr
+            .media
+              .pull-left
+                a[href="#"]
+                  img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;"]
+              .media-body
+                textarea.form-control[rows="1" placeholder="Comment"]
+
+        .panel.panel-default
+          .panel-body
+            .pull-left
+              a[href="#"]
+                img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;"]
+            h4
+              a[href="#" style="text-decoration:none;"]
+                strong
+                  | John Doe 
+              |  – 
+              small
+                small
+                  a[href="#" style="text-decoration:none; color:grey;"]
+                    i
+                      i.fa.fa-clock-o[aria-hidden="true"]
+
+                      |  42 minutes ago 
+            span
+
+            .navbar-right
+              .dropdown
+                button#dd1.btn.btn-link.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+                  i.fa.fa-cog[aria-hidden="true"]
+
+                  span.caret
+
+                ul.dropdown-menu[aria-labelledby="dd1" style="float: right;"]
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-exclamation-triangle[aria-hidden="true"]
+
+                      |  Report 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-ban[aria-hidden="true"]
+
+                      |  Ignore 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-bell[aria-hidden="true"]
+
+                      |  Enable notifications for this post 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-eye-slash[aria-hidden="true"]
+
+                      |  Hide 
+                  li.divider[role="separator"]
+
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-trash[aria-hidden="true"]
+
+                      |  Delete 
+            hr
+            .post-content
+              p
+                | Sample post content with picture. 
+              img.img-responsive[src="https://media.giphy.com/media/j1QQj6To9Pbxu/giphy.gif"]
+              p
+                br
+                a.tag[href="/tags/christmas"]
+                  | #Christmas 
+                a.tag[href="/tags/caturday"]
+                  | #Caturday 
+            hr
+            div
+              .pull-right.btn-group-xs
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-heart[aria-hidden="true"]
+
+                  |  Like 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-retweet[aria-hidden="true"]
+
+                  |  Reshare 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-comment[aria-hidden="true"]
+
+                  |  Comment 
+              .pull-left
+                p.text-muted[style="margin-left:5px;"]
+                  i.fa.fa-globe[aria-hidden="true"]
+
+                  |  Public 
+                  strong
+                    | via mobile 
+              br
+            hr
+            .media
+              .pull-left
+                a[href="#"]
+                  img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;"]
+              .media-body
+                textarea.form-control[rows="1" placeholder="Comment"]
+
+        .panel.panel-default
+          .panel-body
+            .pull-left
+              a[href="#"]
+                img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;"]
+            h4
+              a[href="#" style="text-decoration:none;"]
+                strong
+                  | John Doe 
+              |  – 
+              small
+                small
+                  a[href="#" style="text-decoration:none; color:grey;"]
+                    i
+                      i.fa.fa-clock-o[aria-hidden="true"]
+
+                      |  42 minutes ago 
+            span
+
+            .navbar-right
+              .dropdown
+                button#dd1.btn.btn-link.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"]
+                  i.fa.fa-cog[aria-hidden="true"]
+
+                  span.caret
+
+                ul.dropdown-menu[aria-labelledby="dd1" style="float: right;"]
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-exclamation-triangle[aria-hidden="true"]
+
+                      |  Report 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-ban[aria-hidden="true"]
+
+                      |  Ignore 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-bell[aria-hidden="true"]
+
+                      |  Enable notifications for this post 
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-eye-slash[aria-hidden="true"]
+
+                      |  Hide 
+                  li.divider[role="separator"]
+
+                  li
+                    a[href="#"]
+                      i.fa.fa-fw.fa-trash[aria-hidden="true"]
+
+                      |  Delete 
+            hr
+            .post-content
+              p
+                | Sample post content with comments. 
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet. 
+            hr
+            div
+              .pull-right.btn-group-xs
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-heart[aria-hidden="true"]
+
+                  |  Like 
+                a.btn.btn-default.btn-xs
+                  i.fa.fa-comment[aria-hidden="true"]
+
+                  |  Comment 
+              .pull-left
+                p.text-muted[style="margin-left:5px;"]
+                  i.fa.fa-user-secret[aria-hidden="true"]
+
+                  |  Limited 
+              br
+            hr
+            div
+              a.btn.btn-default.btn-xs
+                i.fa.fa-bars[aria-hidden="true"]
+
+                |  Show 12 more comments 
+              hr
+              .post-content
+                .panel-default
+                  .panel-body
+                    .pull-left
+                      a[href="#"]
+                        img.media-object.img-circle[src="https://diaspote.org/uploads/images/thumb_large_283df6397c4db3fe0344.png" width="35px" height="35px" style="margin-right:8px; margin-top:-5px;"]
+                    h4
+                      a[href="#" style="text-decoration:none;"]
+                        strong
+                          | ✪ SтeғOғғιcιel ✪ ツ 
+                    hr
+                    .post-content
+                      |  Comment example. 
+                      br
+                      br
+                      |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu sapien. Donec laoreet, nisl quis tempor hendrerit, libero augue blandit turpis, in dignissim odio mauris eu tortor. Ut hendrerit ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo. 
+                      br
+                      small
+                        small
+                          a[href="#" style="text-decoration:none; color:grey;"]
+                            i
+                              i.fa.fa-clock-o[aria-hidden="true"]
+
+                              |  12 minutes ago 
+              hr
+              .post-content
+                .panel-default
+                  .panel-body
+                    .pull-left
+                      a[href="#"]
+                        img.media-object.img-circle[src="https://lut.im/yR07xwobAA/bZpvdTZmBBTZDJDd.png" width="35px" height="35px" style="margin-right:8px; margin-top:-5px;"]
+                    h4
+                      a[href="#" style="text-decoration:none;"]
+                        strong
+                          | Mi Chleen 
+                    hr
+                    .post-content
+                      |  Another comment. 
+                      br
+                      br
+                      |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu sapien. Donec laoreet, nisl quis tempor hendrerit, libero augue blandit turpis, in dignissim odio mauris eu tortor. Ut hendrerit ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo. 
+                      br
+                      small
+                        small
+                          a[href="#" style="text-decoration:none; color:grey;"]
+                            i
+                              i.fa.fa-clock-o[aria-hidden="true"]
+
+                              |  9 minutes ago 
+              hr
+              .post-content
+                .panel-default
+                  .panel-body
+                    .pull-left
+                      a[href="#"]
+                        img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-right:8px; margin-top:-5px;"]
+                    h4
+                      a[href="#" style="text-decoration:none;"]
+                        strong
+                          | John Doe 
+                    hr
+                    .post-content
+                      |  Yet another post. 
+                      br
+                      br
+                      |  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu sapien. Donec laoreet, nisl quis tempor hendrerit, libero augue blandit turpis, in dignissim odio mauris eu tortor. Ut hendrerit ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo. 
+                      br
+                      small
+                        small
+                          a[href="#" style="text-decoration:none; color:grey;"]
+                            i
+                              i.fa.fa-clock-o[aria-hidden="true"]
+
+                              |  2 minutes ago 
+            .media
+              .pull-left
+                a[href="#"]
+                  img.media-object.img-circle[src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;"]
+              .media-body
+                textarea.form-control[rows="1" placeholder="Comment"]

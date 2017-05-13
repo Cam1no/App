@@ -1,8 +1,53 @@
-h1 Editing user_basis
+.mainbody.container-fluid
+  = form_for @user, url: user_basis_path(@user), method: :put do |f|
+    .row
+      div[style="padding-top:20px;"]
+        |   
+      .col-lg-3.col-md-3.hidden-sm.hidden-xs
+        .panel.panel-default
+          .panel-body
+            h1.panel-title.pull-left[style="font-size:30px;"]
+              i.fa.fa-cogs[aria-hidden="true"]
 
-== render 'form'
-
-= link_to 'Show', @user
-'  |
-= link_to 'Back', user_bases_path
-
+              |  Settings 
+      .col-lg-9.col-md-9.col-sm-12.col-xs-12
+        .panel.panel-default
+          .panel-body
+            h1.panel-title.pull-left[style="font-size:30px;"]
+              | My basic profile 
+        .panel.panel-default
+          .panel-body
+            form.form-horizontal
+              label[for="First_name"]
+                | Name
+              = f.text_field :name, class: "form-control"
+            br
+            form.form-horizontal
+              label[for="email"]
+                | Email
+              = f.text_field :email, class: "form-control"
+        .panel.panel-default
+          .panel-body
+            h3.panel-title.pull-left
+              | Describe yourself in 5 words 
+            br
+            br
+            = f.text_field :sentence, class: "form-control", placeholder: "Introduce your self"
+        .panel.panel-default
+          .panel-body
+            h3.panel-title.pull-left
+              | Your photo 
+            br
+            br
+            div[align="center"]
+              .col-lg-12.col-md-12
+                - if @user.image.present?
+                  = image_tag(@user.image, class: "img-thumbnail img-responsive", id: "upload-image-area", width: "300px", height: "300px")
+              .col-lg-12.col-md-12
+                = f.label :image, class: "btn btn-primary"
+                = f.file_field :image, style: "display:none;"
+                = f.hidden_field :image_cache
+        .panel.panel-default
+          .panel-body
+            = link_to "Cancel", root_path, class: "btn btn-danger", data: { confirm: 'Are you sure?'}
+            = f.submit "Update", class: "btn btn-primary"
