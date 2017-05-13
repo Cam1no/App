@@ -42,7 +42,7 @@
             div[align="center"]
               .col-lg-12.col-md-12
                 - if @user.image.present?
-                  = image_tag(@user.image, class: "img-thumbnail img-responsive", width: "300px", height: "300px")
+                  = image_tag(@user.image, class: "img-thumbnail img-responsive", id: "upload-image-area", width: "300px", height: "300px")
               .col-lg-12.col-md-12
                 = f.label :image, class: "btn btn-primary"
                 = f.file_field :image, style: "display:none;"
