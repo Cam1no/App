@@ -11,7 +11,3 @@ User::Base.create(name: 'admin', email: 'admin@gmail.com', password: '1234567890
 20.times do |index|
   User::Base.create(name: "Name#{index}", email: "test#{index}@gmail.com", password: "password#{index}")
 end
-
-20.times do |i|
-  User::Base.first.articles.create(title: "Hello World #{i}", content: "Hello New World #{i}", description: "Lets Rock The World #{i}")
-end

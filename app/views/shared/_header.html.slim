@@ -16,17 +16,17 @@
               | Guest
         #navbar-collapse-8.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
-              = link_to '記事作成', new_article_basis_path
-            li[class="#{current_page?(article_bases_path) ? 'active' : '' }"]
-              = link_to '記事一覧', article_bases_path
             - if current_user.present?
+              li[class="#{current_page?(new_article_basis_path) ? 'active' : '' }"]
+                = link_to '記事作成', new_article_basis_path
+              li[class="#{current_page?(article_bases_path) ? 'active' : '' }"]
+                = link_to '記事一覧', article_bases_path
               li[class="#{current_page?(edit_user_basis_path(current_user)) ? 'active' : '' }"]
                 = link_to "プロフィール編集", edit_user_basis_path(current_user)
               li[class="#{current_page?(user_basis_path(current_user)) ? 'active' : '' }"]
                 = link_to "Mypage", user_basis_path(current_user)
-            li[class="#{current_page?(chat_rooms_path) ? 'active' : '' }"]
-              = link_to 'Chat Room 一覧', chat_rooms_path
+              li[class="#{current_page?(chat_rooms_path) ? 'active' : '' }"]
+                = link_to 'Chat Room 一覧', chat_rooms_path
           - if signed_in?
             .navbar-right
               = link_to "Logout", destroy_basis_session_path, method: :delete, class: "btn btn-danger navbar-btn"
