@@ -20,6 +20,7 @@
 //= require bootstrap-markdown-bundle
 //= require bootstrap-sprockets
 //= require toastr_rails
+//= require bootstrap-tagsinput
 //= require cable
 //= require_tree .
 

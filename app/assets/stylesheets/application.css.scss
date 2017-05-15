@@ -5,8 +5,9 @@
  *= require font-awesome
  *= require toastr_rails
  *= require bootstrap-markdown
+ *= require bootstrap-tagsinput
  */
- 
+
  @import "bootstrap-sprockets";
  @import "bootstrap3/bootstrap";
  @import "bootflat.scss";

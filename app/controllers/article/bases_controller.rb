@@ -27,7 +27,7 @@ class Article::BasesController < ApplicationController
   def create
     @article = current_user.articles.create(article_basis_params)
     if params[:tag].present?
-      tag_names = params[:tag].split(' ')
+      tag_names = params[:tag].split(',')
       tag_names.each do |tag_name|
         @tag = Article::Tag.find_or_create_by(name: tag_name)
         @article.tag_relations.create(tag_id: @tag.id)
