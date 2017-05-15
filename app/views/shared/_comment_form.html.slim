@@ -5,7 +5,7 @@
         .comment_box
           = form_tag(ajax_article_comments_path, method: :post, remote: true, autocomplete: 'off') do
             = hidden_field_tag :article_id, @article.id
-            = text_area_tag(:comment_field, "", placeholder: "What are you doing right now?", :"data-provide" => "markdown", rows: "10")
+            = text_area_tag(:comment_field, "", placeholder: "What are you doing right now?", rows: "10")
             button.btn.btn-success.green.padding-10[type="submit"]
               i.fa.fa-share
               |  Comment

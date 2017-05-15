@@ -278,6 +278,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    redcarpet (3.4.0)
     redis (3.3.3)
     redis-actionpack (5.0.1)
       actionpack (>= 4.0, < 6)
@@ -463,6 +464,7 @@ DEPENDENCIES
   rails (~> 5.1.0)
   rails-bootstrap-markdown
   rails-i18n (~> 5.0, >= 5.0.1)
+  redcarpet
   redis-rails
   rmagick
   rspec-activemodel-mocks
