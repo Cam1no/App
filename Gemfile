@@ -42,7 +42,6 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'
 gem 'rails-i18n', '~> 5.0', '>= 5.0.1'
 gem 'redis-rails'
 gem 'slim-rails'
-gem 'mathjax-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
