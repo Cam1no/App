@@ -7,7 +7,8 @@
             - @articles.each do |article|
               .col-lg-6.col-md-6
                 aside
-                  = image_tag(article.photos.first.image, class:"img-responsive")
+                  - if article.photos.present?
+                    = image_tag(article.photos.first.image, class:"img-responsive")
                   .content-title
                     .text-center
                       h3
