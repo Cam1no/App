@@ -6,51 +6,52 @@
           .row
             - @articles.each do |article|
               .col-lg-6.col-md-6
-                aside
-                  - if article.photos.present?
-                    = image_tag(article.photos.first.image, class:"img-responsive")
-                  .content-title
-                    .text-center
-                      h3
-                        a[href="#"]
-                          | Niki Postingan Sing Kepisan Njeh, Perdana Ngoten 
-                  .content-footer
-                    img.user-small-img[src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"]
-                    span[style="font-size: 16px;color: #fff;"]
-                      | Sumit Kumar 
-                    span.pull-right
-                      a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
-                        i.fa.fa-comments
-
-                        |  30 
-                      a[href="#" data-toggle="tooltip" data-placement="right" title="Loved"]
-                        i.fa.fa-heart
-
-                        |  20 
-                    .user-ditels
-                      .user-img
-                        img.img-responsive[src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"]
-                      span.user-full-ditels
-
-                      h3
+                = link_to article_basis_path(article) do
+                  aside
+                    - if article.photos.present?
+                      = image_tag(article.photos.first.image, class:"img-responsive")
+                    .content-title
+                      .text-center
+                        h3
+                          a[href="#"]
+                            | Niki Postingan Sing Kepisan Njeh, Perdana Ngoten 
+                    .content-footer
+                      img.user-small-img[src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"]
+                      span[style="font-size: 16px;color: #fff;"]
                         | Sumit Kumar 
-                      p
-                        | Web & Graphics Disigner 
-                      .social-icon
-                        a[href="#"]
-                          i.fa.fa-facebook[data-toggle="tooltip" data-placement="bottom" title="Facebook"]
+                      span.pull-right
+                        a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
+                          i.fa.fa-comments
 
-                        a[href="#"]
-                          i.fa.fa-twitter[data-toggle="tooltip" data-placement="bottom" title="Twitter"]
+                          |  30 
+                        a[href="#" data-toggle="tooltip" data-placement="right" title="Loved"]
+                          i.fa.fa-heart
 
-                        a[href="#"]
-                          i.fa.fa-google-plus[data-toggle="tooltip" data-placement="bottom" title="Google Plus"]
+                          |  20 
+                      .user-ditels
+                        .user-img
+                          img.img-responsive[src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg"]
+                        span.user-full-ditels
 
-                        a[href="#"]
-                          i.fa.fa-youtube[data-toggle="tooltip" data-placement="bottom" title="Youtube"]
+                        h3
+                          | Sumit Kumar 
+                        p
+                          | Web & Graphics Disigner 
+                        .social-icon
+                          a[href="#"]
+                            i.fa.fa-facebook[data-toggle="tooltip" data-placement="bottom" title="Facebook"]
 
-                        a[href="#"]
-                          i.fa.fa-github[data-toggle="tooltip" data-placement="bottom" title="Github"]
+                          a[href="#"]
+                            i.fa.fa-twitter[data-toggle="tooltip" data-placement="bottom" title="Twitter"]
+
+                          a[href="#"]
+                            i.fa.fa-google-plus[data-toggle="tooltip" data-placement="bottom" title="Google Plus"]
+
+                          a[href="#"]
+                            i.fa.fa-youtube[data-toggle="tooltip" data-placement="bottom" title="Youtube"]
+
+                          a[href="#"]
+                            i.fa.fa-github[data-toggle="tooltip" data-placement="bottom" title="Github"]
 
 
 
