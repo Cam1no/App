@@ -7,6 +7,12 @@
             .col-lg-8.col-md-8
               span[style="font-size: 35px;color: #fff;"]
                 = article.title
+              
+              br
+              ul.tag-style
+                - article.tags.each do |tag|
+                  li
+                    = link_to tag.name, '#'
             .col-lg-4.col-md-4
               span.pull-right
                 / a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
