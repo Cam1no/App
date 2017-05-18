@@ -67,7 +67,8 @@
           .row
             .col-lg-12.col-md-12
               aside
-                = image_tag(@article.photos.first.image, class: "img-responsive")
+                - if @article.photos.present?
+                  = image_tag(@article.photos.first.image, class: "img-responsive")
                 .content-footer
                   = markdown(@article.content)
           
