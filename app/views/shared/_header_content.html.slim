@@ -14,9 +14,10 @@
                   li
                     = link_to tag.name, '#'
             .col-lg-4.col-md-4
-              span.pull-right
-                / a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
-                /   i.fa.fa-comments
-                /   |  30 
-                span[data-toggle="tooltip" data-placement="right" title="Loved" id="article_#{article.id}"]
-                  = render 'shared/like/like_form', article: article
+              - if current_user.present?
+                span.pull-right
+                  / a[href="#" data-toggle="tooltip" data-placement="left" title="Comments"]
+                  /   i.fa.fa-comments
+                  /   |  30 
+                  span[data-toggle="tooltip" data-placement="right" title="Loved" id="article_#{article.id}"]
+                    = render 'shared/like/like_form', article: article
